@@ -55,7 +55,6 @@ export const productFragment = /* GraphQL */ `
           id
           title
           availableForSale
-          quantityAvailable
           selectedOptions {
             name
             value
