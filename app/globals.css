@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/*  ETTY HECKELMAN LONDON — design tokens                             */
+/*  A restrained, high-jewellery palette: ivory, ink and champagne.   */
+/* ------------------------------------------------------------------ */
+@theme {
+  --color-ivory: #f8f6f1;
+  --color-porcelain: #fdfcfa;
+  --color-champagne: #b08d57;
+  --color-champagne-dark: #927442;
+  --color-ink: #1c1a17;
+  --color-ash: #6f6a63;
+  --color-stone: #e7e2d8;
+  --color-line: #ded8cc;
+
+  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+
+  --tracking-luxe: 0.22em;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-porcelain);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  ::selection {
+    background-color: var(--color-champagne);
+    color: var(--color-porcelain);
+  }
+}
+
+@layer components {
+  /* Small-caps overline label used throughout the site */
+  .overline {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-luxe);
+    color: var(--color-champagne);
+  }
+
+  /* Underlined luxury link with an animated rule */
+  .link-underline {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.95rem 2.25rem;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background-color: var(--color-ink);
+    color: var(--color-porcelain);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-champagne-dark);
+  }
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-ink);
+    border-color: var(--color-ink);
+  }
+  .btn-outline:hover {
+    background-color: var(--color-ink);
+    color: var(--color-porcelain);
+  }
+  .btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+/* Reveal-on-scroll animation, progressively enhanced */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-rise {
+  animation: rise 0.9s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise { animation: none; }
+  html { scroll-behavior: auto; }
+}
