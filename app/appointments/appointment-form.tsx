@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { DatePicker } from "@/components/ui/date-picker";
 
 export function AppointmentForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -53,7 +54,7 @@ export function AppointmentForm() {
       </div>
 
       <div className="grid sm:grid-cols-2 gap-6">
-        <Field label="Preferred date" name="date" type="date" required />
+        <DatePicker label="Preferred date" name="date" required />
         <label className="block">
           <span className="text-[0.72rem] uppercase tracking-[0.16em] text-ink">Preferred time</span>
           <select
