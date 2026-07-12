@@ -15,17 +15,17 @@ const COLUMNS = [
     links: [
       { label: "Our Story", href: "/about" },
       { label: "Bespoke Commissions", href: "/bespoke" },
-      { label: "Book an Appointment", href: "/contact" },
-      { label: "Journal", href: "/about" },
+      { label: "Book an Appointment", href: "/appointments" },
+      { label: "Contact Us", href: "/contact" },
     ],
   },
   {
     heading: "Client Care",
     links: [
-      { label: "Contact Us", href: "/contact" },
-      { label: "Shipping & Returns", href: "/contact" },
-      { label: "Jewellery Care", href: "/contact" },
-      { label: "FAQ", href: "/contact" },
+      { label: "Shipping & Returns", href: "/shipping-returns" },
+      { label: "Jewellery Care", href: "/jewellery-care" },
+      { label: "Ring Size Guide", href: "/size-guide" },
+      { label: "Wishlist", href: "/wishlist" },
     ],
   },
 ];
@@ -97,9 +97,9 @@ export function Footer() {
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[0.7rem] tracking-[0.12em] uppercase text-porcelain/45">
           <p>© {new Date().getFullYear()} Etty Heckelman London. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="/contact" className="hover:text-porcelain transition-colors">Privacy</Link>
-            <Link href="/contact" className="hover:text-porcelain transition-colors">Terms</Link>
-            <Link href="/contact" className="hover:text-porcelain transition-colors">Cookies</Link>
+            <Link href="/privacy" className="hover:text-porcelain transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-porcelain transition-colors">Terms</Link>
+            <Link href="/cookies" className="hover:text-porcelain transition-colors">Cookies</Link>
           </div>
         </div>
       </div>

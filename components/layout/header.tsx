@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCart } from "@/components/cart/cart-context";
-import { BagIcon, MenuIcon, CloseIcon, SearchIcon } from "@/components/ui/icons";
+import { useWishlist } from "@/components/wishlist/wishlist-context";
+import { BagIcon, MenuIcon, CloseIcon, SearchIcon, HeartIcon } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
 
 type NavChild = { label: string; href: string };
@@ -92,6 +93,7 @@ function DesktopNavItem({ item }: { item: NavItem }) {
 
 export function Header() {
   const { totalQuantity, openCart } = useCart();
+  const { count: wishlistCount } = useWishlist();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -159,6 +161,18 @@ export function Header() {
             </nav>
             <Link href="/search" aria-label="Search" className="hidden sm:block hover:text-champagne-dark transition-colors">
               <SearchIcon className="w-5 h-5" />
+            </Link>
+            <Link
+              href="/wishlist"
+              aria-label={`Wishlist, ${wishlistCount} items`}
+              className="relative hidden sm:block hover:text-champagne-dark transition-colors"
+            >
+              <HeartIcon className="w-5 h-5" />
+              {wishlistCount > 0 && (
+                <span className="absolute -top-2 -right-2.5 min-w-[1.05rem] h-[1.05rem] px-1 rounded-full bg-champagne text-porcelain text-[0.6rem] font-medium flex items-center justify-center">
+                  {wishlistCount}
+                </span>
+              )}
             </Link>
             <button
               aria-label={`Shopping bag, ${totalQuantity} items`}

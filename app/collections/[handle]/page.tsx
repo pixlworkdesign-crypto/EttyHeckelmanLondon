@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getCollectionProducts, getCollections } from "@/lib/shopify";
-import { ProductGrid } from "@/components/product/product-grid";
+import { CollectionBrowser } from "@/components/collection/collection-browser";
 
 export const revalidate = 3600;
 
@@ -48,12 +48,9 @@ export default async function CollectionPage({
         {collection.description && (
           <p className="text-ash font-light mt-5 leading-relaxed">{collection.description}</p>
         )}
-        <p className="text-xs uppercase tracking-[0.16em] text-ash mt-6">
-          {products.length} {products.length === 1 ? "piece" : "pieces"}
-        </p>
       </header>
 
-      <ProductGrid products={products} />
+      <CollectionBrowser products={products} />
     </div>
   );
 }

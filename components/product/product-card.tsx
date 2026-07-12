@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/lib/shopify/types";
 import { formatPrice } from "@/lib/utils";
+import { WishlistButton } from "@/components/wishlist/wishlist-button";
 
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
   const price = product.priceRange.minVariantPrice;
@@ -31,16 +32,28 @@ export function ProductCard({ product, priority = false }: { product: Product; p
             className="object-cover scale-105 opacity-0 transition-all duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:opacity-100 group-hover:scale-100"
           />
         )}
-        {product.tags.includes("bestseller") && (
-          <span className="absolute top-4 left-4 bg-porcelain/95 text-ink text-[0.58rem] uppercase tracking-[0.18em] px-3 py-1.5">
-            Bestseller
-          </span>
-        )}
-        {onSale && (
-          <span className="absolute top-4 right-4 bg-ink text-porcelain text-[0.58rem] uppercase tracking-[0.18em] px-3 py-1.5">
-            Sale
-          </span>
-        )}
+        <div className="absolute top-4 left-4 z-10 flex flex-col items-start gap-2">
+          {product.tags.includes("bestseller") && (
+            <span className="bg-porcelain/95 text-ink text-[0.58rem] uppercase tracking-[0.18em] px-3 py-1.5">
+              Bestseller
+            </span>
+          )}
+          {onSale && (
+            <span className="bg-ink text-porcelain text-[0.58rem] uppercase tracking-[0.18em] px-3 py-1.5">
+              Sale
+            </span>
+          )}
+        </div>
+        <WishlistButton
+          item={{
+            id: product.id,
+            handle: product.handle,
+            title: product.title,
+            image: product.featuredImage?.url ?? null,
+            price: Number(price.amount),
+            currencyCode: price.currencyCode,
+          }}
+        />
         {/* Quiet hover affordance */}
         <span className="absolute inset-x-0 bottom-0 py-3.5 text-center text-[0.62rem] uppercase tracking-[0.22em] text-ink bg-porcelain/90 backdrop-blur-sm translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]">
           View Piece

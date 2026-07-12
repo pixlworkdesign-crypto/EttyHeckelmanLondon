@@ -5,6 +5,9 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { CartProvider } from "@/components/cart/cart-context";
 import { CartDrawer } from "@/components/cart/cart-drawer";
+import { WishlistProvider } from "@/components/wishlist/wishlist-context";
+import { CookieConsent } from "@/components/cookie-consent";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -55,12 +58,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
       <body>
-        <CartProvider>
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-          <CartDrawer />
-        </CartProvider>
+        <WishlistProvider>
+          <CartProvider>
+            <Header />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+            <CartDrawer />
+            <WhatsAppButton />
+            <CookieConsent />
+          </CartProvider>
+        </WishlistProvider>
       </body>
     </html>
   );

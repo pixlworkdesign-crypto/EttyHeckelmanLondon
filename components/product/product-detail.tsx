@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import type { Product } from "@/lib/shopify/types";
 import { useCart } from "@/components/cart/cart-context";
+import { WishlistButton } from "@/components/wishlist/wishlist-button";
 import { formatPrice, cn } from "@/lib/utils";
 import { ArrowRightIcon } from "@/components/ui/icons";
 
@@ -148,18 +149,32 @@ export function ProductDetail({ product }: { product: Product }) {
 
         {/* Add to cart */}
         <div className="mt-10 flex flex-col gap-4">
-          <button
-            onClick={handleAdd}
-            disabled={!selectedVariant?.availableForSale}
-            className="btn btn-primary w-full sm:w-auto sm:min-w-[16rem]"
-          >
-            {!selectedVariant?.availableForSale
-              ? "Sold Out"
-              : added
-                ? "Added to Bag ✓"
-                : "Add to Bag"}
-            {selectedVariant?.availableForSale && !added && <ArrowRightIcon className="w-4 h-4" />}
-          </button>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <button
+              onClick={handleAdd}
+              disabled={!selectedVariant?.availableForSale}
+              className="btn btn-primary flex-1 sm:min-w-[15rem]"
+            >
+              {!selectedVariant?.availableForSale
+                ? "Sold Out"
+                : added
+                  ? "Added to Bag ✓"
+                  : "Add to Bag"}
+              {selectedVariant?.availableForSale && !added && <ArrowRightIcon className="w-4 h-4" />}
+            </button>
+            <WishlistButton
+              variant="inline"
+              className="border border-ink w-full sm:w-[3.4rem] h-[3.4rem] hover:bg-ivory shrink-0"
+              item={{
+                id: product.id,
+                handle: product.handle,
+                title: product.title,
+                image: product.featuredImage?.url ?? null,
+                price: Number((selectedVariant?.price ?? product.priceRange.minVariantPrice).amount),
+                currencyCode: (selectedVariant?.price ?? product.priceRange.minVariantPrice).currencyCode,
+              }}
+            />
+          </div>
           <p className="text-[0.72rem] text-ash tracking-wide">
             Complimentary insured delivery · Presented in our signature packaging
           </p>
