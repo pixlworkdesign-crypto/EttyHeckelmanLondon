@@ -12,18 +12,18 @@ export function Hero() {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/15 to-ink/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/45 via-ink/10 to-transparent" />
 
       <div className="relative h-full mx-auto max-w-[1400px] px-6 md:px-10 flex flex-col items-center justify-center text-center text-porcelain">
-        <p className="overline text-porcelain/80 animate-rise">The Winter Collection</p>
-        <h1 className="font-display text-5xl md:text-7xl lg:text-8xl mt-4 leading-[0.95] animate-rise">
+        <p className="overline text-porcelain/70 animate-rise">The Winter Collection</p>
+        <h1 className="font-display font-light text-5xl md:text-7xl lg:text-[5.5rem] mt-6 leading-[1.02] tracking-[0.01em] animate-rise">
           Light, held<br />for a lifetime
         </h1>
-        <p className="mt-6 max-w-xl text-porcelain/85 font-light md:text-lg animate-rise">
-          Fine jewellery handcrafted in London. Rare stones, set by hand, made to be
+        <p className="mt-7 max-w-md text-porcelain/85 font-light md:text-lg leading-relaxed animate-rise">
+          Fine jewellery, handcrafted in London. Rare stones, set by hand, made to be
           treasured and passed on.
         </p>
-        <div className="mt-9 flex flex-col sm:flex-row gap-4 animate-rise">
+        <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-rise">
           <Link href="/collections/rings" className="btn btn-primary bg-porcelain text-ink hover:bg-champagne hover:text-porcelain">
             Shop Engagement
           </Link>

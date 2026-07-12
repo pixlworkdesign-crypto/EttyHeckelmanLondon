@@ -2,28 +2,30 @@
 
 /* ------------------------------------------------------------------ */
 /*  ETTY HECKELMAN LONDON — design tokens                             */
-/*  A restrained, high-jewellery palette: ivory, ink and champagne.   */
+/*  Restrained high-jewellery minimalism: crisp white, deep ink,      */
+/*  cool stone neutrals and a single, quiet metallic accent.          */
 /* ------------------------------------------------------------------ */
 @theme {
-  --color-ivory: #f8f6f1;
-  --color-porcelain: #fdfcfa;
-  --color-champagne: #b08d57;
-  --color-champagne-dark: #927442;
-  --color-ink: #1c1a17;
-  --color-ash: #6f6a63;
-  --color-stone: #e7e2d8;
-  --color-line: #ded8cc;
+  --color-ivory: #f4f3ef;
+  --color-porcelain: #ffffff;
+  --color-champagne: #8c7a5c;
+  --color-champagne-dark: #6f6045;
+  --color-ink: #12100e;
+  --color-ash: #78736b;
+  --color-stone: #e8e5de;
+  --color-line: #e6e3db;
 
-  --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-cormorant), "Times New Roman", Georgia, serif;
   --font-body: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
 
-  --tracking-luxe: 0.22em;
+  --tracking-luxe: 0.32em;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
@@ -32,37 +34,40 @@
     color: var(--color-ink);
     font-family: var(--font-body);
     font-weight: 300;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.015em;
+    line-height: 1.65;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: 0.01em;
+    font-weight: 300;
+    letter-spacing: 0.005em;
+    line-height: 1.08;
   }
 
   ::selection {
-    background-color: var(--color-champagne);
+    background-color: var(--color-ink);
     color: var(--color-porcelain);
   }
 }
 
 @layer components {
-  /* Small-caps overline label used throughout the site */
+  /* Small-caps overline label used throughout the site.
+     Cool, quiet and editorial — the signature of a high-jewellery house. */
   .overline {
     font-family: var(--font-body);
-    font-size: 0.7rem;
+    font-size: 0.66rem;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: var(--tracking-luxe);
-    color: var(--color-champagne);
+    color: var(--color-ash);
   }
 
   /* Underlined luxury link with an animated rule */
   .link-underline {
     position: relative;
     display: inline-block;
-    padding-bottom: 2px;
+    padding-bottom: 3px;
   }
   .link-underline::after {
     content: "";
@@ -74,26 +79,26 @@
     background-color: currentColor;
     transform: scaleX(0);
     transform-origin: right;
-    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   }
   .link-underline:hover::after {
     transform: scaleX(1);
     transform-origin: left;
   }
 
-  /* Buttons */
+  /* Buttons — restrained, wide-tracked, quietly confident */
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 0.95rem 2.25rem;
+    gap: 0.6rem;
+    padding: 1.05rem 2.75rem;
     font-family: var(--font-body);
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
-    transition: all 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+    letter-spacing: 0.24em;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     cursor: pointer;
     border: 1px solid transparent;
   }
@@ -102,7 +107,9 @@
     color: var(--color-porcelain);
   }
   .btn-primary:hover {
-    background-color: var(--color-champagne-dark);
+    background-color: transparent;
+    color: var(--color-ink);
+    border-color: var(--color-ink);
   }
   .btn-outline {
     background-color: transparent;
@@ -121,11 +128,11 @@
 
 /* Reveal-on-scroll animation, progressively enhanced */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 .animate-rise {
-  animation: rise 0.9s cubic-bezier(0.19, 1, 0.22, 1) both;
+  animation: rise 1.1s cubic-bezier(0.19, 1, 0.22, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {

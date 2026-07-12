@@ -37,7 +37,7 @@ export function Header() {
   return (
     <>
       {/* Announcement bar */}
-      <div className="bg-ink text-porcelain text-center text-[0.68rem] tracking-[0.2em] uppercase py-2.5 px-4">
+      <div className="bg-ink text-porcelain/90 text-center text-[0.62rem] tracking-[0.28em] uppercase py-3 px-4 font-light">
         Complimentary insured delivery &amp; lifetime aftercare · Book a private appointment
       </div>
 
@@ -68,10 +68,10 @@ export function Header() {
 
           {/* Centre: wordmark */}
           <Link href="/" className="justify-self-center text-center leading-none">
-            <span className="block font-display text-2xl md:text-[2rem] tracking-[0.14em] text-ink">
+            <span className="block font-display font-light text-2xl md:text-[1.85rem] tracking-[0.24em] text-ink">
               ETTY HECKELMAN
             </span>
-            <span className="block overline mt-1 text-champagne">London</span>
+            <span className="block overline mt-1.5 text-ash tracking-[0.42em]">London</span>
           </Link>
 
           {/* Right: remaining nav + icons */}
