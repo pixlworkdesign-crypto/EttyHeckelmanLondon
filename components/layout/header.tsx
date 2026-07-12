@@ -6,19 +6,95 @@ import { useCart } from "@/components/cart/cart-context";
 import { BagIcon, MenuIcon, CloseIcon, SearchIcon } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
 
-const NAV = [
-  { label: "Rings", href: "/collections/rings" },
-  { label: "Earrings", href: "/collections/earrings" },
-  { label: "Necklaces", href: "/collections/necklaces" },
-  { label: "Bracelets", href: "/collections/bracelets" },
+type NavChild = { label: string; href: string };
+type NavItem = { label: string; href: string; children?: NavChild[] };
+
+// Top-level navigation. Each `children` link points to a Shopify collection —
+// create a collection with the matching name/handle to fill it with products.
+const NAV: NavItem[] = [
+  {
+    label: "Rings",
+    href: "/collections/rings",
+    children: [
+      { label: "Engagement Rings", href: "/collections/engagement-rings" },
+      { label: "Eternity Rings", href: "/collections/eternity-rings" },
+      { label: "Wedding Bands", href: "/collections/wedding-bands" },
+      { label: "The Emerald Collection", href: "/collections/emerald-collection" },
+    ],
+  },
+  {
+    label: "Earrings",
+    href: "/collections/earrings",
+    children: [
+      { label: "Stud Earrings", href: "/collections/stud-earrings" },
+      { label: "Drop Earrings", href: "/collections/drop-earrings" },
+      { label: "Hoop Earrings", href: "/collections/hoop-earrings" },
+    ],
+  },
+  {
+    label: "Necklaces",
+    href: "/collections/necklaces",
+    children: [
+      { label: "Pendants", href: "/collections/pendants" },
+      { label: "Rivière Necklaces", href: "/collections/riviere-necklaces" },
+      { label: "Chains", href: "/collections/chains" },
+    ],
+  },
+  {
+    label: "Bracelets",
+    href: "/collections/bracelets",
+    children: [
+      { label: "Tennis Bracelets", href: "/collections/tennis-bracelets" },
+      { label: "Bangles", href: "/collections/bangles" },
+    ],
+  },
   { label: "Bespoke", href: "/bespoke" },
   { label: "The House", href: "/about" },
 ];
+
+function DesktopNavItem({ item }: { item: NavItem }) {
+  if (!item.children) {
+    return (
+      <Link href={item.href} className="link-underline hover:text-champagne-dark transition-colors">
+        {item.label}
+      </Link>
+    );
+  }
+  return (
+    <div className="relative group">
+      <Link href={item.href} className="link-underline group-hover:text-champagne-dark transition-colors">
+        {item.label}
+      </Link>
+      {/* Dropdown (pt-6 forms an invisible hover bridge to the panel) */}
+      <div className="absolute left-0 top-full pt-6 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+        <div className="bg-porcelain border border-line shadow-[0_24px_60px_-24px_rgba(0,0,0,0.28)] py-3 min-w-[240px]">
+          <Link
+            href={item.href}
+            className="block px-6 py-2.5 text-[0.68rem] tracking-[0.16em] uppercase text-ash hover:text-ink hover:bg-ivory transition-colors"
+          >
+            All {item.label}
+          </Link>
+          <div className="my-2 mx-6 h-px bg-line" />
+          {item.children.map((child) => (
+            <Link
+              key={child.href}
+              href={child.href}
+              className="block px-6 py-2.5 text-[0.82rem] tracking-[0.04em] normal-case text-ink/85 hover:text-champagne-dark hover:bg-ivory transition-colors"
+            >
+              {child.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function Header() {
   const { totalQuantity, openCart } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [expanded, setExpanded] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -33,6 +109,8 @@ export function Header() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  const closeMobile = () => setMobileOpen(false);
 
   return (
     <>
@@ -53,9 +131,7 @@ export function Header() {
           {/* Left: desktop nav / mobile menu button */}
           <nav className="hidden lg:flex items-center gap-7 text-[0.72rem] uppercase tracking-[0.14em] text-ink/85">
             {NAV.slice(0, 3).map((item) => (
-              <Link key={item.href} href={item.href} className="link-underline hover:text-champagne-dark transition-colors">
-                {item.label}
-              </Link>
+              <DesktopNavItem key={item.label} item={item} />
             ))}
           </nav>
           <button
@@ -78,9 +154,7 @@ export function Header() {
           <div className="flex items-center justify-end gap-6 text-ink">
             <nav className="hidden lg:flex items-center gap-7 text-[0.72rem] uppercase tracking-[0.14em] text-ink/85">
               {NAV.slice(3).map((item) => (
-                <Link key={item.href} href={item.href} className="link-underline hover:text-champagne-dark transition-colors">
-                  {item.label}
-                </Link>
+                <DesktopNavItem key={item.label} item={item} />
               ))}
             </nav>
             <Link href="/search" aria-label="Search" className="hidden sm:block hover:text-champagne-dark transition-colors">
@@ -109,33 +183,77 @@ export function Header() {
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
-        <div className="absolute inset-0 bg-ink/40" onClick={() => setMobileOpen(false)} />
+        <div className="absolute inset-0 bg-ink/40" onClick={closeMobile} />
         <div
           className={cn(
-            "absolute left-0 top-0 h-full w-[82%] max-w-sm bg-porcelain shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]",
+            "absolute left-0 top-0 h-full w-[86%] max-w-sm bg-porcelain shadow-2xl overflow-y-auto transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]",
             mobileOpen ? "translate-x-0" : "-translate-x-full"
           )}
         >
           <div className="flex items-center justify-between px-6 py-6 border-b border-line">
             <span className="font-display text-xl tracking-[0.14em]">ETTY HECKELMAN</span>
-            <button aria-label="Close menu" onClick={() => setMobileOpen(false)}>
+            <button aria-label="Close menu" onClick={closeMobile}>
               <CloseIcon className="w-6 h-6" />
             </button>
           </div>
-          <nav className="flex flex-col px-6 py-4">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="py-4 border-b border-line/60 font-display text-2xl text-ink hover:text-champagne-dark transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
+          <nav className="flex flex-col px-6 py-2">
+            {NAV.map((item) =>
+              item.children ? (
+                <div key={item.label} className="border-b border-line/60">
+                  <button
+                    onClick={() => setExpanded((e) => (e === item.label ? null : item.label))}
+                    className="w-full flex items-center justify-between py-4 font-display text-2xl text-ink"
+                    aria-expanded={expanded === item.label}
+                  >
+                    {item.label}
+                    <span
+                      className={cn(
+                        "text-champagne text-xl font-light transition-transform duration-300",
+                        expanded === item.label && "rotate-45"
+                      )}
+                    >
+                      +
+                    </span>
+                  </button>
+                  <div
+                    className={cn(
+                      "overflow-hidden transition-all duration-300",
+                      expanded === item.label ? "max-h-96 pb-3" : "max-h-0"
+                    )}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={closeMobile}
+                      className="block py-2 pl-3 text-[0.72rem] uppercase tracking-[0.16em] text-ash"
+                    >
+                      All {item.label}
+                    </Link>
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        onClick={closeMobile}
+                        className="block py-2.5 pl-3 text-base text-ink/80 hover:text-champagne-dark transition-colors"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={closeMobile}
+                  className="py-4 border-b border-line/60 font-display text-2xl text-ink hover:text-champagne-dark transition-colors"
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
             <Link
               href="/search"
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMobile}
               className="py-4 text-[0.72rem] uppercase tracking-[0.18em] text-ash"
             >
               Search
