@@ -17,6 +17,7 @@ function makeProduct(p: {
   handle: string;
   title: string;
   price: string;
+  compareAt?: string;
   type: string;
   image: string;
   gallery?: string[];
@@ -24,6 +25,7 @@ function makeProduct(p: {
   tags?: string[];
 }): Product {
   const variantId = `gid://shopify/ProductVariant/mock-${p.handle}`;
+  const compareAtMoney = p.compareAt ? GBP(p.compareAt) : null;
   return {
     id: `gid://shopify/Product/mock-${p.handle}`,
     handle: p.handle,
@@ -51,6 +53,7 @@ function makeProduct(p: {
         quantityAvailable: 5,
         selectedOptions: [{ name: "Metal", value: "18ct Yellow Gold" }],
         price: GBP(p.price),
+        compareAtPrice: compareAtMoney,
       },
       {
         id: `${variantId}-white`,
@@ -59,6 +62,7 @@ function makeProduct(p: {
         quantityAvailable: 3,
         selectedOptions: [{ name: "Metal", value: "18ct White Gold" }],
         price: GBP(p.price),
+        compareAtPrice: compareAtMoney,
       },
       {
         id: `${variantId}-platinum`,
@@ -67,12 +71,14 @@ function makeProduct(p: {
         quantityAvailable: 2,
         selectedOptions: [{ name: "Metal", value: "Platinum" }],
         price: GBP((Number(p.price) * 1.25).toFixed(2)),
+        compareAtPrice: p.compareAt ? GBP((Number(p.compareAt) * 1.25).toFixed(2)) : null,
       },
     ],
     priceRange: {
       minVariantPrice: GBP(p.price),
       maxVariantPrice: GBP((Number(p.price) * 1.25).toFixed(2)),
     },
+    compareAtPriceRange: compareAtMoney ? { minVariantPrice: compareAtMoney } : null,
     seo: { title: p.title, description: p.description },
   };
 }
@@ -97,6 +103,7 @@ export const MOCK_PRODUCTS: Product[] = [
     handle: "eternity-pave-band",
     title: "Eternity Pavé Band",
     price: "3200.00",
+    compareAt: "3850.00",
     type: "Rings",
     image: U("1603561591411-07134e71a2a9"),
     gallery: [U("1596944924616-7b38e7cfac36")],

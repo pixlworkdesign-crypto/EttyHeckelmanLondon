@@ -5,6 +5,8 @@ import { formatPrice } from "@/lib/utils";
 
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
   const price = product.priceRange.minVariantPrice;
+  const compareAt = product.compareAtPriceRange?.minVariantPrice;
+  const onSale = compareAt && Number(compareAt.amount) > Number(price.amount);
   const hover = product.images[1] ?? product.featuredImage;
 
   return (
@@ -17,7 +19,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
             priority={priority}
-            className="object-cover transition-opacity duration-700 group-hover:opacity-0"
+            className="object-cover transition-all duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:opacity-0 group-hover:scale-[1.04]"
           />
         )}
         {hover && (
@@ -26,21 +28,39 @@ export function ProductCard({ product, priority = false }: { product: Product; p
             alt={product.title}
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-            className="object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+            className="object-cover scale-105 opacity-0 transition-all duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:opacity-100 group-hover:scale-100"
           />
         )}
         {product.tags.includes("bestseller") && (
-          <span className="absolute top-3 left-3 bg-porcelain/90 text-ink text-[0.6rem] uppercase tracking-[0.16em] px-3 py-1.5">
+          <span className="absolute top-4 left-4 bg-porcelain/95 text-ink text-[0.58rem] uppercase tracking-[0.18em] px-3 py-1.5">
             Bestseller
           </span>
         )}
+        {onSale && (
+          <span className="absolute top-4 right-4 bg-ink text-porcelain text-[0.58rem] uppercase tracking-[0.18em] px-3 py-1.5">
+            Sale
+          </span>
+        )}
+        {/* Quiet hover affordance */}
+        <span className="absolute inset-x-0 bottom-0 py-3.5 text-center text-[0.62rem] uppercase tracking-[0.22em] text-ink bg-porcelain/90 backdrop-blur-sm translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]">
+          View Piece
+        </span>
       </div>
-      <div className="pt-4 text-center">
-        <p className="overline text-ash/80 mb-1">{product.productType}</p>
-        <h3 className="font-display text-xl text-ink group-hover:text-champagne-dark transition-colors">
+      <div className="pt-5 text-center">
+        <p className="overline text-ash/70 mb-1.5">{product.productType}</p>
+        <h3 className="font-display text-xl text-ink transition-colors group-hover:text-champagne-dark">
           {product.title}
         </h3>
-        <p className="text-sm text-ash mt-1.5 tracking-wide">{formatPrice(price)}</p>
+        <p className="text-[0.82rem] mt-2 tracking-[0.06em]">
+          {onSale ? (
+            <>
+              <span className="text-ash/70 line-through mr-2">{formatPrice(compareAt)}</span>
+              <span className="text-champagne-dark">{formatPrice(price)}</span>
+            </>
+          ) : (
+            <span className="text-ash">{formatPrice(price)}</span>
+          )}
+        </p>
       </div>
     </Link>
   );

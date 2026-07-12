@@ -25,6 +25,7 @@ export type ProductVariant = {
   quantityAvailable?: number | null;
   selectedOptions: SelectedOption[];
   price: Money;
+  compareAtPrice?: Money | null;
 };
 
 export type ProductOption = {
@@ -51,6 +52,9 @@ export type Product = {
     minVariantPrice: Money;
     maxVariantPrice: Money;
   };
+  compareAtPriceRange?: {
+    minVariantPrice: Money;
+  } | null;
   seo: {
     title: string | null;
     description: string | null;

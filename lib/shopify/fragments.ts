@@ -34,6 +34,12 @@ export const productFragment = /* GraphQL */ `
         currencyCode
       }
     }
+    compareAtPriceRange {
+      minVariantPrice {
+        amount
+        currencyCode
+      }
+    }
     featuredImage {
       ...image
     }
@@ -60,6 +66,10 @@ export const productFragment = /* GraphQL */ `
             value
           }
           price {
+            amount
+            currencyCode
+          }
+          compareAtPrice {
             amount
             currencyCode
           }

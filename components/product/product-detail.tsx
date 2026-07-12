@@ -81,9 +81,34 @@ export function ProductDetail({ product }: { product: Product }) {
       <div className="lg:py-6 lg:pr-8">
         <p className="overline">{product.productType || "Fine Jewellery"}</p>
         <h1 className="font-display text-4xl md:text-5xl mt-3 leading-[1.05]">{product.title}</h1>
-        <p className="text-2xl font-light mt-5 text-ink/90">
-          {formatPrice(selectedVariant?.price ?? product.priceRange.minVariantPrice)}
-        </p>
+        {(() => {
+          const activePrice = selectedVariant?.price ?? product.priceRange.minVariantPrice;
+          const activeCompareAt = selectedVariant?.compareAtPrice;
+          const onSale =
+            activeCompareAt && Number(activeCompareAt.amount) > Number(activePrice.amount);
+          return (
+            <p className="mt-5 flex items-baseline gap-3">
+              {onSale && (
+                <span className="text-xl font-light text-ash/70 line-through">
+                  {formatPrice(activeCompareAt)}
+                </span>
+              )}
+              <span
+                className={cn(
+                  "text-2xl font-light",
+                  onSale ? "text-champagne-dark" : "text-ink/90"
+                )}
+              >
+                {formatPrice(activePrice)}
+              </span>
+              {onSale && (
+                <span className="text-[0.62rem] uppercase tracking-[0.18em] bg-ink text-porcelain px-2.5 py-1">
+                  Sale
+                </span>
+              )}
+            </p>
+          );
+        })()}
 
         <div className="w-full h-px bg-line my-8" />
 
