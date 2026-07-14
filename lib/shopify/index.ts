@@ -1,4 +1,4 @@
-import { getProductQuery, getProductsQuery, getCollectionsQuery, getCollectionProductsQuery, getCartQuery } from "./queries";
+import { getProductQuery, getProductsQuery, getCollectionsQuery, getCollectionProductsQuery, getCartQuery, getSiteSettingsQuery } from "./queries";
 import { createCartMutation, addToCartMutation, updateCartMutation, removeFromCartMutation } from "./mutations";
 import { MOCK_COLLECTIONS, MOCK_PRODUCTS, mockCollectionProducts } from "./mock-data";
 import type { Cart, Collection, Product, ProductVariant } from "./types";
@@ -213,6 +213,33 @@ export async function removeFromCart(cartId: string, lineIds: string[]): Promise
     cache: "no-store",
   });
   return normaliseCart(data.cartLinesRemove.cart);
+}
+
+// --- site settings (merchant-controlled logo & hero via a metaobject) -------
+
+export type SiteSettings = { logoUrl: string | null; heroUrl: string | null };
+
+type MetaImageField = { reference?: { image?: { url?: string | null } | null } | null } | null;
+
+export async function getSiteSettings(): Promise<SiteSettings> {
+  const empty: SiteSettings = { logoUrl: null, heroUrl: null };
+  if (!isShopifyConfigured) return empty;
+  try {
+    const data = await shopifyFetch<{
+      metaobjects: Connection<{ logo?: MetaImageField; hero?: MetaImageField }>;
+    }>({
+      query: getSiteSettingsQuery,
+      tags: ["site-settings"],
+    });
+    const node = data.metaobjects?.edges?.[0]?.node;
+    return {
+      logoUrl: node?.logo?.reference?.image?.url ?? null,
+      heroUrl: node?.hero?.reference?.image?.url ?? null,
+    };
+  } catch {
+    // The metaobject may not exist yet — fall back silently to defaults.
+    return empty;
+  }
 }
 
 export type { Cart, Collection, Product, ProductVariant };

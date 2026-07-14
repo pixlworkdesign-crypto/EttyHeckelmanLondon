@@ -92,7 +92,7 @@ function DesktopNavItem({ item }: { item: NavItem }) {
   );
 }
 
-export function Header() {
+export function Header({ logoUrl }: { logoUrl?: string | null }) {
   const { totalQuantity, openCart } = useCart();
   const { count: wishlistCount } = useWishlist();
   const [scrolled, setScrolled] = useState(false);
@@ -147,7 +147,7 @@ export function Header() {
 
           {/* Centre: wordmark / logo */}
           <Link href="/" className="justify-self-center text-center leading-none" aria-label="Etty Hekelman London — home">
-            <Logo />
+            <Logo src={logoUrl} />
           </Link>
 
           {/* Right: remaining nav + icons */}

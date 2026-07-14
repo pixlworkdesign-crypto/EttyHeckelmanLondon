@@ -76,3 +76,36 @@ export const getCartQuery = /* GraphQL */ `
   }
   ${cartFragment}
 `;
+
+// Site-wide settings the merchant controls from Shopify (a "site_settings"
+// metaobject with image fields "logo" and "hero_image").
+export const getSiteSettingsQuery = /* GraphQL */ `
+  query getSiteSettings {
+    metaobjects(type: "site_settings", first: 1) {
+      edges {
+        node {
+          logo: field(key: "logo") {
+            reference {
+              ... on MediaImage {
+                image {
+                  url
+                  altText
+                }
+              }
+            }
+          }
+          hero: field(key: "hero_image") {
+            reference {
+              ... on MediaImage {
+                image {
+                  url
+                  altText
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

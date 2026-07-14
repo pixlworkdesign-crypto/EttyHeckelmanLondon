@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getCollections, getProducts } from "@/lib/shopify";
+import { getCollections, getProducts, getSiteSettings } from "@/lib/shopify";
 import { Hero } from "@/components/home/hero";
 import { CategoryTiles } from "@/components/home/category-tiles";
 import { StorySplit, BespokeBanner, ValueRow } from "@/components/home/editorial";
@@ -9,16 +9,17 @@ import { Reveal } from "@/components/ui/reveal";
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const [collections, products] = await Promise.all([
+  const [collections, products, settings] = await Promise.all([
     getCollections(),
     getProducts({ first: 8 }),
+    getSiteSettings(),
   ]);
 
   const featured = products.slice(0, 4);
 
   return (
     <>
-      <Hero />
+      <Hero image={settings.heroUrl} />
       <ValueRow />
 
       <Reveal>

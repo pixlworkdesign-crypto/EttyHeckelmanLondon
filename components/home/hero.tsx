@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { HERO_IMAGE } from "@/lib/site";
 
-export function Hero() {
+export function Hero({ image }: { image?: string | null }) {
   return (
     <section className="relative h-[86vh] min-h-[560px] w-full overflow-hidden">
       <Image
-        src={HERO_IMAGE}
+        src={image || HERO_IMAGE}
         alt="Etty Hekelman London fine jewellery"
         fill
         priority

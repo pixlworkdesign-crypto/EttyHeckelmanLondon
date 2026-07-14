@@ -8,6 +8,7 @@ import { CartDrawer } from "@/components/cart/cart-drawer";
 import { WishlistProvider } from "@/components/wishlist/wishlist-context";
 import { CookieConsent } from "@/components/cookie-consent";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { getSiteSettings } from "@/lib/shopify";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -52,15 +53,16 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const { logoUrl } = await getSiteSettings();
   return (
     <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
       <body>
         <WishlistProvider>
           <CartProvider>
-            <Header />
+            <Header logoUrl={logoUrl} />
             <main className="min-h-screen">{children}</main>
             <Footer />
             <CartDrawer />

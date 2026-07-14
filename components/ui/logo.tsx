@@ -5,11 +5,12 @@ import { LOGO_URL } from "@/lib/site";
  * The house wordmark. Renders your uploaded logo image when LOGO_URL is set,
  * otherwise falls back to the typeset wordmark so the header is never empty.
  */
-export function Logo() {
-  if (LOGO_URL) {
+export function Logo({ src }: { src?: string | null }) {
+  const url = src || LOGO_URL;
+  if (url) {
     return (
       <img
-        src={LOGO_URL}
+        src={url}
         alt="Etty Hekelman London"
         className="h-9 md:h-11 w-auto object-contain mx-auto"
       />
