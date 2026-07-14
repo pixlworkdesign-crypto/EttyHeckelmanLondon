@@ -9,18 +9,12 @@ import { LOGO_URL } from "@/lib/site";
 export function Logo({ src }: { src?: string | null }) {
   const url = src || LOGO_URL;
   if (url) {
-    // The uploaded logo has empty margins baked in. We show it inside a fixed,
-    // compact box and use object-cover so the surrounding whitespace is cropped
-    // away — this enlarges the actual lettering without making the header taller.
     return (
-      <span className="block h-12 md:h-16 w-[280px] md:w-[420px] overflow-hidden mx-auto">
-        <img
-          src={url}
-          alt="Etty Hekelman London"
-          className="w-full h-full object-cover"
-          style={{ objectPosition: "center" }}
-        />
-      </span>
+      <img
+        src={url}
+        alt="Etty Hekelman London"
+        className="h-12 md:h-14 w-auto object-contain mx-auto"
+      />
     );
   }
 
