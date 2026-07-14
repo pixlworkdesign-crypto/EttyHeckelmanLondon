@@ -12,7 +12,7 @@ export function Logo({ src }: { src?: string | null }) {
       <img
         src={url}
         alt="Etty Hekelman London"
-        className="h-9 md:h-11 w-auto object-contain mx-auto"
+        className="h-16 md:h-24 w-auto object-contain mx-auto"
       />
     );
   }
