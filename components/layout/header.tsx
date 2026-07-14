@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useCart } from "@/components/cart/cart-context";
 import { useWishlist } from "@/components/wishlist/wishlist-context";
 import { BagIcon, MenuIcon, CloseIcon, SearchIcon, HeartIcon } from "@/components/ui/icons";
+import { Logo } from "@/components/ui/logo";
 import { cn } from "@/lib/utils";
 
 type NavChild = { label: string; href: string };
@@ -144,12 +145,9 @@ export function Header() {
             <MenuIcon className="w-6 h-6" />
           </button>
 
-          {/* Centre: wordmark */}
-          <Link href="/" className="justify-self-center text-center leading-none">
-            <span className="block font-display font-light text-2xl md:text-[1.85rem] tracking-[0.24em] text-ink">
-              ETTY HEKELMAN
-            </span>
-            <span className="block overline mt-1.5 text-ash tracking-[0.42em]">London</span>
+          {/* Centre: wordmark / logo */}
+          <Link href="/" className="justify-self-center text-center leading-none" aria-label="Etty Hekelman London — home">
+            <Logo />
           </Link>
 
           {/* Right: remaining nav + icons */}
