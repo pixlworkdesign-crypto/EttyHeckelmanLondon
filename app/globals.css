@@ -6,14 +6,14 @@
 /*  cool stone neutrals and a single, quiet metallic accent.          */
 /* ------------------------------------------------------------------ */
 @theme {
-  --color-ivory: #f4f3ef;
-  --color-porcelain: #ffffff;
-  --color-champagne: #8c7a5c;
-  --color-champagne-dark: #6f6045;
-  --color-ink: #12100e;
-  --color-ash: #78736b;
-  --color-stone: #e8e5de;
-  --color-line: #e6e3db;
+  --color-ivory: #ece4d3;
+  --color-porcelain: #f5efe3;
+  --color-champagne: #8a7355;
+  --color-champagne-dark: #6d5940;
+  --color-ink: #241f17;
+  --color-ash: #7c7061;
+  --color-stone: #ddd3c0;
+  --color-line: #e1d9c8;
 
   --font-display: var(--font-cormorant), "Times New Roman", Georgia, serif;
   --font-body: var(--font-jost), ui-sans-serif, system-ui, sans-serif;

@@ -13,7 +13,6 @@ const COLUMNS = [
   {
     heading: "The House",
     links: [
-      { label: "Our Story", href: "/about" },
       { label: "Bespoke Commissions", href: "/bespoke" },
       { label: "Book an Appointment", href: "/appointments" },
       { label: "Contact Us", href: "/contact" },

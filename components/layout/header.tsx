@@ -51,7 +51,6 @@ const NAV: NavItem[] = [
     ],
   },
   { label: "Bespoke", href: "/bespoke" },
-  { label: "The House", href: "/about" },
 ];
 
 function DesktopNavItem({ item }: { item: NavItem }) {

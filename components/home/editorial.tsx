@@ -29,8 +29,8 @@ export function StorySplit() {
               The result is jewellery with quiet presence — designed to be worn every day
               and treasured for generations.
             </p>
-            <Link href="/about" className="btn btn-outline mt-8">
-              Discover the House
+            <Link href="/bespoke" className="btn btn-outline mt-8">
+              Discover Bespoke
             </Link>
           </div>
         </div>
