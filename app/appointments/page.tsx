@@ -5,7 +5,7 @@ import { AppointmentForm } from "./appointment-form";
 export const metadata: Metadata = {
   title: "Book an Appointment",
   description:
-    "Book a private, one-to-one appointment with Etty Heckelman London — in our showroom or virtually.",
+    "Book a private, one-to-one appointment with Etty Hekelman London — in our showroom or virtually.",
 };
 
 export default function AppointmentsPage() {
@@ -15,7 +15,7 @@ export default function AppointmentsPage() {
       <div className="relative hidden lg:block">
         <Image
           src="https://images.unsplash.com/photo-1600721391689-2564bb8055de?auto=format&fit=crop&w=1400&q=80"
-          alt="The Etty Heckelman London showroom"
+          alt="The Etty Hekelman London showroom"
           fill
           priority
           sizes="50vw"

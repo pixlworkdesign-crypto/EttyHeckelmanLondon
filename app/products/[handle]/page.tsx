@@ -46,7 +46,7 @@ export default async function ProductPage({
     name: product.title,
     description: product.description,
     image: product.images.map((i) => i.url),
-    brand: { "@type": "Brand", name: "Etty Heckelman London" },
+    brand: { "@type": "Brand", name: "Etty Hekelman London" },
     offers: {
       "@type": "Offer",
       price: product.priceRange.minVariantPrice.amount,

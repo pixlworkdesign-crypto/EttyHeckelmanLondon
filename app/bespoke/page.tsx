@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Bespoke",
   description:
-    "Commission a one-of-a-kind piece with Etty Heckelman London. From first sketch to final setting, designed entirely around you.",
+    "Commission a one-of-a-kind piece with Etty Hekelman London. From first sketch to final setting, designed entirely around you.",
 };
 
 const STEPS = [
@@ -34,7 +34,7 @@ export default function BespokePage() {
             A piece entirely your own
           </h1>
           <p className="mt-5 max-w-xl font-light text-porcelain/85">
-            The most personal way to own an Etty Heckelman. Together, we create something
+            The most personal way to own an Etty Hekelman. Together, we create something
             that has never existed before — and never will again.
           </p>
           <Link href="/contact" className="btn btn-primary bg-porcelain text-ink hover:bg-champagne hover:text-porcelain mt-8">

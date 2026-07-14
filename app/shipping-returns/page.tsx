@@ -4,7 +4,7 @@ import { ContentPage } from "@/components/content-page";
 export const metadata: Metadata = {
   title: "Shipping, Returns & Warranty",
   description:
-    "Complimentary insured worldwide delivery, 30-day returns and a lifetime warranty on every Etty Heckelman London piece.",
+    "Complimentary insured worldwide delivery, 30-day returns and a lifetime warranty on every Etty Hekelman London piece.",
 };
 
 export default function ShippingReturnsPage() {
@@ -44,7 +44,7 @@ export default function ShippingReturnsPage() {
 
       <h2>Lifetime Warranty &amp; Aftercare</h2>
       <p>
-        Every Etty Heckelman London piece is guaranteed against manufacturing defects for life.
+        Every Etty Hekelman London piece is guaranteed against manufacturing defects for life.
         We also offer <strong>complimentary cleaning, servicing and re-polishing</strong> to keep
         your jewellery as radiant as the day you received it.
       </p>

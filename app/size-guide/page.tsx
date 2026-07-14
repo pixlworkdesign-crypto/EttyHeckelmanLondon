@@ -4,7 +4,7 @@ import { ContentPage } from "@/components/content-page";
 export const metadata: Metadata = {
   title: "Ring Size Guide",
   description:
-    "Find your ring size with the Etty Heckelman London guide, or book a complimentary sizing appointment.",
+    "Find your ring size with the Etty Hekelman London guide, or book a complimentary sizing appointment.",
 };
 
 const SIZES = [

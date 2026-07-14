@@ -3,14 +3,14 @@ import { ContentPage } from "@/components/content-page";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
-  description: "The terms governing your use of the Etty Heckelman London website and purchases.",
+  description: "The terms governing your use of the Etty Hekelman London website and purchases.",
 };
 
 export default function TermsPage() {
   return (
     <ContentPage overline="Legal" title="Terms & Conditions">
       <p>
-        These Terms &amp; Conditions govern your use of the Etty Heckelman London website and any
+        These Terms &amp; Conditions govern your use of the Etty Hekelman London website and any
         purchase you make from us. By using our website, you agree to these terms.
       </p>
 
@@ -42,7 +42,7 @@ export default function TermsPage() {
       <h2>Intellectual Property</h2>
       <p>
         All content on this website — including designs, imagery and text — is the property of Etty
-        Heckelman London and may not be used without our written permission.
+        Hekelman London and may not be used without our written permission.
       </p>
 
       <h2>Governing Law</h2>

@@ -3,14 +3,14 @@ import { ContentPage } from "@/components/content-page";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How Etty Heckelman London collects, uses and protects your personal data.",
+  description: "How Etty Hekelman London collects, uses and protects your personal data.",
 };
 
 export default function PrivacyPage() {
   return (
     <ContentPage overline="Legal" title="Privacy Policy">
       <p>
-        This Privacy Policy explains how <strong>Etty Heckelman London</strong> (&ldquo;we&rdquo;,
+        This Privacy Policy explains how <strong>Etty Hekelman London</strong> (&ldquo;we&rdquo;,
         &ldquo;us&rdquo;) collects, uses and protects your personal information when you visit our
         website or purchase from us. We are committed to protecting your privacy and handling your
         data in line with UK GDPR and the Data Protection Act 2018.
@@ -48,7 +48,7 @@ export default function PrivacyPage() {
 
       <h2>Contact</h2>
       <p>
-        For any privacy questions, email <a href="mailto:privacy@ettyheckelmanlondon.com">privacy@ettyheckelmanlondon.com</a>.
+        For any privacy questions, email <a href="mailto:privacy@ettyhekelmanlondon.com">privacy@ettyhekelmanlondon.com</a>.
       </p>
 
       <p>

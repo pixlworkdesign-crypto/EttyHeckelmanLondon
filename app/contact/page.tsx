@@ -4,7 +4,7 @@ import { ContactForm } from "./contact-form";
 export const metadata: Metadata = {
   title: "Contact & Appointments",
   description:
-    "Contact Etty Heckelman London, book a private appointment or enquire about a bespoke commission.",
+    "Contact Etty Hekelman London, book a private appointment or enquire about a bespoke commission.",
 };
 
 export default function ContactPage() {
@@ -34,8 +34,8 @@ export default function ContactPage() {
           <div>
             <h2 className="overline text-champagne mb-3">Enquiries</h2>
             <p className="font-light text-ash leading-relaxed">
-              <a href="mailto:enquiries@ettyheckelmanlondon.com" className="link-underline">
-                enquiries@ettyheckelmanlondon.com
+              <a href="mailto:enquiries@ettyhekelmanlondon.com" className="link-underline">
+                enquiries@ettyhekelmanlondon.com
               </a>
               <br />
               +44 (0)20 7000 0000

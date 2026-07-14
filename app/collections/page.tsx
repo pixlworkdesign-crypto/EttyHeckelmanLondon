@@ -5,7 +5,7 @@ import { getCollections } from "@/lib/shopify";
 
 export const metadata: Metadata = {
   title: "Collections",
-  description: "Explore the collections of Etty Heckelman London — rings, earrings, necklaces and bracelets.",
+  description: "Explore the collections of Etty Hekelman London — rings, earrings, necklaces and bracelets.",
 };
 
 export const revalidate = 60;

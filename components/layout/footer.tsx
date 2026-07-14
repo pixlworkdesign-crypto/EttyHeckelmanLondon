@@ -37,7 +37,7 @@ export function Footer() {
       <div className="border-b border-white/10">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <p className="overline text-champagne">The House of Etty Heckelman</p>
+            <p className="overline text-champagne">The House of Etty Hekelman</p>
             <h2 className="font-display text-3xl md:text-4xl mt-3 leading-tight">
               Join our private client list
             </h2>
@@ -66,7 +66,7 @@ export function Footer() {
       {/* Link columns */}
       <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 grid grid-cols-2 md:grid-cols-4 gap-10">
         <div className="col-span-2 md:col-span-1">
-          <span className="font-display text-2xl tracking-[0.14em]">ETTY HECKELMAN</span>
+          <span className="font-display text-2xl tracking-[0.14em]">ETTY HEKELMAN</span>
           <p className="overline text-champagne mt-1">London</p>
           <p className="text-porcelain/55 text-sm font-light mt-5 max-w-xs">
             Fine jewellery, handcrafted in London. Each piece is made to be treasured and
@@ -95,7 +95,7 @@ export function Footer() {
       {/* Legal */}
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[0.7rem] tracking-[0.12em] uppercase text-porcelain/45">
-          <p>© {new Date().getFullYear()} Etty Heckelman London. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Etty Hekelman London. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-porcelain transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-porcelain transition-colors">Terms</Link>

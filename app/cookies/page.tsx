@@ -3,7 +3,7 @@ import { ContentPage } from "@/components/content-page";
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
-  description: "How Etty Heckelman London uses cookies and how you can manage your preferences.",
+  description: "How Etty Hekelman London uses cookies and how you can manage your preferences.",
 };
 
 export default function CookiesPage() {

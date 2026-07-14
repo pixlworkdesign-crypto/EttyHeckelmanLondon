@@ -21,7 +21,7 @@ export function StorySplit() {
               Made by hand,<br />in London
             </h2>
             <p className="text-ash font-light leading-relaxed mt-6">
-              Every Etty Heckelman piece begins as a sketch and ends in the hands of a
+              Every Etty Hekelman piece begins as a sketch and ends in the hands of a
               master setter. We select each stone for its life and character, then set it
               with a precision that only time and patience can teach.
             </p>

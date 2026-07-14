@@ -23,29 +23,29 @@ const jost = Jost({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ettyheckelmanlondon.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ettyhekelmanlondon.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ETTY HECKELMAN LONDON — Fine Jewellery",
-    template: "%s · ETTY HECKELMAN LONDON",
+    default: "ETTY HEKELMAN LONDON — Fine Jewellery",
+    template: "%s · ETTY HEKELMAN LONDON",
   },
   description:
-    "ETTY HECKELMAN LONDON — fine jewellery handcrafted in London. Diamond engagement rings, earrings, necklaces and bespoke commissions.",
+    "ETTY HEKELMAN LONDON — fine jewellery handcrafted in London. Diamond engagement rings, earrings, necklaces and bespoke commissions.",
   keywords: [
     "fine jewellery",
     "diamond rings",
     "engagement rings London",
     "luxury jewellery",
-    "Etty Heckelman",
+    "Etty Hekelman",
   ],
   openGraph: {
-    title: "ETTY HECKELMAN LONDON — Fine Jewellery",
+    title: "ETTY HEKELMAN LONDON — Fine Jewellery",
     description:
       "Fine jewellery handcrafted in London. Diamond engagement rings, earrings, necklaces and bespoke commissions.",
     url: siteUrl,
-    siteName: "ETTY HECKELMAN LONDON",
+    siteName: "ETTY HEKELMAN LONDON",
     locale: "en_GB",
     type: "website",
   },

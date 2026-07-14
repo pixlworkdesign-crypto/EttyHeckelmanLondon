@@ -35,7 +35,7 @@ function makeProduct(p: {
     availableForSale: true,
     tags: p.tags ?? [],
     productType: p.type,
-    vendor: "Etty Heckelman London",
+    vendor: "Etty Hekelman London",
     featuredImage: img(p.image, p.title),
     images: [img(p.image, p.title), ...(p.gallery ?? []).map((g) => img(g, p.title))],
     options: [

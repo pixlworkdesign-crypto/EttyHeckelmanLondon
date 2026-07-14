@@ -5,7 +5,7 @@ import { ProductGrid } from "@/components/product/product-grid";
 
 export const metadata: Metadata = {
   title: "Search",
-  description: "Search the Etty Heckelman London collection.",
+  description: "Search the Etty Hekelman London collection.",
 };
 
 export default async function SearchPage({

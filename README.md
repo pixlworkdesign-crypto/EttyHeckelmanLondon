@@ -1,7 +1,7 @@
-# ETTY HECKELMAN LONDON
+# ETTY HEKELMAN LONDON
 
 A luxury, high-end **headless Shopify** storefront for the fine-jewellery house
-**Etty Heckelman London**. Built with Next.js (App Router), TypeScript and
+**Etty Hekelman London**. Built with Next.js (App Router), TypeScript and
 Tailwind CSS, with an editorial aesthetic inspired by the great jewellery
 maisons.
 
@@ -57,7 +57,7 @@ The storefront is fully headless. To go live with real products:
    SHOPIFY_STORE_DOMAIN=your-store.myshopify.com
    SHOPIFY_STOREFRONT_ACCESS_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
    SHOPIFY_API_VERSION=2025-01
-   NEXT_PUBLIC_SITE_URL=https://ettyheckelmanlondon.com
+   NEXT_PUBLIC_SITE_URL=https://ettyhekelmanlondon.com
    ```
 
 That's it. `lib/shopify/index.ts` detects the credentials and automatically

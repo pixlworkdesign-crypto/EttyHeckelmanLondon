@@ -147,7 +147,7 @@ export function Header() {
           {/* Centre: wordmark */}
           <Link href="/" className="justify-self-center text-center leading-none">
             <span className="block font-display font-light text-2xl md:text-[1.85rem] tracking-[0.24em] text-ink">
-              ETTY HECKELMAN
+              ETTY HEKELMAN
             </span>
             <span className="block overline mt-1.5 text-ash tracking-[0.42em]">London</span>
           </Link>
@@ -205,7 +205,7 @@ export function Header() {
           )}
         >
           <div className="flex items-center justify-between px-6 py-6 border-b border-line">
-            <span className="font-display text-xl tracking-[0.14em]">ETTY HECKELMAN</span>
+            <span className="font-display text-xl tracking-[0.14em]">ETTY HEKELMAN</span>
             <button aria-label="Close menu" onClick={closeMobile}>
               <CloseIcon className="w-6 h-6" />
             </button>

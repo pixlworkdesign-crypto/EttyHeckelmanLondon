@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "The House",
   description:
-    "The story of Etty Heckelman London — fine jewellery handcrafted in London with rare stones and enduring design.",
+    "The story of Etty Hekelman London — fine jewellery handcrafted in London with rare stones and enduring design.",
 };
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
       <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1600721391689-2564bb8055de?auto=format&fit=crop&w=2000&q=80"
-          alt="The Etty Heckelman atelier"
+          alt="The Etty Hekelman atelier"
           fill
           priority
           sizes="100vw"
@@ -23,7 +23,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-ink/35" />
         <div className="relative h-full flex flex-col items-center justify-center text-center text-porcelain px-6">
           <p className="overline text-porcelain/80">Est. London</p>
-          <h1 className="font-display text-5xl md:text-7xl mt-4">The House of Etty Heckelman</h1>
+          <h1 className="font-display text-5xl md:text-7xl mt-4">The House of Etty Hekelman</h1>
         </div>
       </section>
 
@@ -33,7 +33,7 @@ export default function AboutPage() {
           Jewellery is memory, made to be worn
         </h2>
         <p className="text-ash font-light leading-relaxed mt-8 text-lg">
-          Etty Heckelman London was founded on a simple belief: that the finest jewellery
+          Etty Hekelman London was founded on a simple belief: that the finest jewellery
           should feel personal. Not merely bought, but chosen — for a moment, a person, a
           promise. We design pieces that carry meaning quietly, and wear beautifully for a
           lifetime.
@@ -77,7 +77,7 @@ export default function AboutPage() {
             Where every piece begins
           </h2>
           <p className="text-ash font-light leading-relaxed mt-6">
-            Behind each Etty Heckelman creation is a small team of designers, goldsmiths and
+            Behind each Etty Hekelman creation is a small team of designers, goldsmiths and
             gem-setters working side by side. It is slow, deliberate work — the kind that
             cannot be rushed and does not wish to be.
           </p>

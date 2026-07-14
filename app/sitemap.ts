@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getCollections, getProducts } from "@/lib/shopify";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ettyheckelmanlondon.com";
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ettyhekelmanlondon.com";
 
   const staticRoutes = [
     "",
