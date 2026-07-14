@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 // "site_settings" metaobject, so we can see why the logo/hero aren't updating.
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+export async function GET(request: Request) {
   const domain = process.env.SHOPIFY_STORE_DOMAIN?.replace(/^https?:\/\//, "");
   const token = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
   const apiVersion = process.env.SHOPIFY_API_VERSION ?? "2025-01";
@@ -13,9 +13,13 @@ export async function GET() {
     return NextResponse.json({ ok: false, reason: "Shopify not configured (missing domain or token)." });
   }
 
+  // Allow testing a specific type via ?type=... (defaults to site_settings)
+  const url = new URL(request.url);
+  const type = url.searchParams.get("type") || "site_settings";
+
   const query = /* GraphQL */ `
     {
-      metaobjects(type: "site_settings", first: 5) {
+      metaobjects(type: "${type}", first: 5) {
         edges {
           node {
             handle
