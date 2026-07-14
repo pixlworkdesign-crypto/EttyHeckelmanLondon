@@ -2,8 +2,9 @@
 import { LOGO_URL } from "@/lib/site";
 
 /**
- * The house wordmark. Renders your uploaded logo image when LOGO_URL is set,
- * otherwise falls back to the typeset wordmark so the header is never empty.
+ * The house wordmark — uses your uploaded logo image (from the Shopify
+ * metaobject, or NEXT_PUBLIC_LOGO_URL), falling back to the typeset wordmark
+ * only if no image is set.
  */
 export function Logo({ src }: { src?: string | null }) {
   const url = src || LOGO_URL;
@@ -12,7 +13,7 @@ export function Logo({ src }: { src?: string | null }) {
       <img
         src={url}
         alt="Etty Hekelman London"
-        className="h-16 md:h-24 w-auto object-contain mx-auto"
+        className="h-20 md:h-28 w-auto object-contain mx-auto"
       />
     );
   }
