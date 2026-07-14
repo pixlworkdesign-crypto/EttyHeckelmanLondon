@@ -4,7 +4,7 @@ import { getProduct, getProducts } from "@/lib/shopify";
 import { ProductDetail } from "@/components/product/product-detail";
 import { ProductGrid } from "@/components/product/product-grid";
 
-export const revalidate = 3600;
+export const revalidate = 60;
 
 export async function generateStaticParams() {
   const products = await getProducts({ first: 50 });

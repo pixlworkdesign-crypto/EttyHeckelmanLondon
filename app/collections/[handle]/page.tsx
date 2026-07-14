@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getCollectionProducts, getCollections } from "@/lib/shopify";
 import { CollectionBrowser } from "@/components/collection/collection-browser";
 
-export const revalidate = 3600;
+export const revalidate = 60;
 
 export async function generateStaticParams() {
   const collections = await getCollections();

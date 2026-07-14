@@ -6,6 +6,8 @@ import { StorySplit, BespokeBanner, ValueRow } from "@/components/home/editorial
 import { ProductGrid } from "@/components/product/product-grid";
 import { Reveal } from "@/components/ui/reveal";
 
+export const revalidate = 60;
+
 export default async function HomePage() {
   const [collections, products] = await Promise.all([
     getCollections(),

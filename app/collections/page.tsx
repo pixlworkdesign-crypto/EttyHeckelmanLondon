@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: "Explore the collections of Etty Heckelman London — rings, earrings, necklaces and bracelets.",
 };
 
+export const revalidate = 60;
+
 export default async function CollectionsPage() {
   const collections = await getCollections();
 

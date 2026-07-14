@@ -19,27 +19,39 @@ type GraphQLResponse<T> = {
   errors?: { message: string }[];
 };
 
+// Storefront reads are cached but automatically refreshed every 60s (ISR), so
+// edits made in Shopify appear on the live site within about a minute — no
+// redeploy needed. Tags also allow instant, on-demand purges via the webhook
+// at /api/revalidate. Cart calls opt out with cache: "no-store".
+const DEFAULT_REVALIDATE = 60;
+
 async function shopifyFetch<T>({
   query,
   variables,
-  cache = "force-cache",
+  cache,
   tags,
+  revalidate = DEFAULT_REVALIDATE,
 }: {
   query: string;
   variables?: Record<string, unknown>;
   cache?: RequestCache;
   tags?: string[];
+  revalidate?: number;
 }): Promise<T> {
-  const res = await fetch(endpoint, {
+  const init: RequestInit & { next?: { revalidate?: number; tags?: string[] } } = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       "X-Shopify-Storefront-Access-Token": accessToken as string,
     },
     body: JSON.stringify({ query, variables }),
-    cache,
-    ...(tags ? { next: { tags } } : {}),
-  });
+  };
+  if (cache === "no-store") {
+    init.cache = "no-store";
+  } else {
+    init.next = { revalidate, tags };
+  }
+  const res = await fetch(endpoint, init);
 
   if (!res.ok) {
     throw new Error(`Shopify request failed: ${res.status} ${res.statusText}`);
