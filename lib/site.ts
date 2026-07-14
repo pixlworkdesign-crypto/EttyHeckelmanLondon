@@ -3,3 +3,10 @@
 // wordmark in the header with your actual logo. Leave empty to use the text
 // version. Can also be set via the NEXT_PUBLIC_LOGO_URL environment variable.
 export const LOGO_URL = process.env.NEXT_PUBLIC_LOGO_URL ?? "";
+
+// The main homepage hero image. Point NEXT_PUBLIC_HERO_IMAGE at your own
+// hosted image (e.g. a Shopify Files URL) to replace it, or update the default
+// below. Use a wide, high-resolution photo (~2000px) for best results.
+export const HERO_IMAGE =
+  process.env.NEXT_PUBLIC_HERO_IMAGE ??
+  "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=2000&q=80";

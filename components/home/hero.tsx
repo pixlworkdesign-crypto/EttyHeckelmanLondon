@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HERO_IMAGE } from "@/lib/site";
 
 export function Hero() {
   return (
     <section className="relative h-[86vh] min-h-[560px] w-full overflow-hidden">
       <Image
-        src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=2000&q=80"
-        alt="A diamond ring resting on soft fabric"
+        src={HERO_IMAGE}
+        alt="Etty Hekelman London fine jewellery"
         fill
         priority
         sizes="100vw"
