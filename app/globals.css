@@ -52,9 +52,9 @@
 }
 
 @layer components {
-  /* Small-caps overline label used throughout the site.
+  /* Small-caps eyebrow label used throughout the site.
      Cool, quiet and editorial — the signature of a high-jewellery house. */
-  .overline {
+  .eyebrow {
     font-family: var(--font-body);
     font-size: 0.66rem;
     font-weight: 400;

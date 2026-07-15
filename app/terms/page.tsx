@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <ContentPage overline="Legal" title="Terms & Conditions">
+    <ContentPage eyebrow="Legal" title="Terms & Conditions">
       <p>
         These Terms &amp; Conditions govern your use of the Etty Hekelman London website and any
         purchase you make from us. By using our website, you agree to these terms.

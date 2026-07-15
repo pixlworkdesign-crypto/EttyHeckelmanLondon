@@ -60,7 +60,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
         </span>
       </div>
       <div className="pt-5 text-center">
-        <p className="overline text-ash/70 mb-1.5">{product.productType}</p>
+        <p className="eyebrow text-ash/70 mb-1.5">{product.productType}</p>
         <h3 className="font-display text-xl text-ink transition-colors group-hover:text-champagne-dark">
           {product.title}
         </h3>

@@ -20,7 +20,7 @@ const SIZES = [
 export default function SizeGuidePage() {
   return (
     <ContentPage
-      overline="Client Care"
+      eyebrow="Client Care"
       title="Ring Size Guide"
       intro="A perfect fit matters. Use the guide below, or let us measure you in person during a complimentary appointment."
     >

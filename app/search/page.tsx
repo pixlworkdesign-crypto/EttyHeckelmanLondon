@@ -27,7 +27,7 @@ export default async function SearchPage({
   return (
     <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 md:py-24">
       <header className="text-center max-w-xl mx-auto mb-12">
-        <p className="overline">Search</p>
+        <p className="eyebrow">Search</p>
         <h1 className="font-display text-5xl mt-3">Find Your Piece</h1>
         <form action="/search" className="mt-8 flex items-center border-b border-line">
           <input

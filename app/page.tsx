@@ -27,7 +27,7 @@ export default async function HomePage() {
         </div>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
           <div>
-            <p className="overline">Newly Arrived</p>
+            <p className="eyebrow">Newly Arrived</p>
             <h2 className="font-display text-4xl md:text-5xl mt-3">The Latest Pieces</h2>
           </div>
           <Link

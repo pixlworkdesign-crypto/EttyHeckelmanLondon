@@ -129,7 +129,7 @@ export function CollectionBrowser({ products }: { products: Product[] }) {
       {filtersOpen && (
         <div className="mb-10 pb-8 border-b border-line space-y-6 animate-rise">
           <div>
-            <p className="overline mb-3">Price</p>
+            <p className="eyebrow mb-3">Price</p>
             <div className="flex flex-wrap gap-2.5">
               {PRICE_BUCKETS.map((b) => (
                 <button key={b.key} onClick={() => togglePrice(b.key)} className={chip(priceKeys.includes(b.key))}>
@@ -141,7 +141,7 @@ export function CollectionBrowser({ products }: { products: Product[] }) {
 
           {facets.map((facet) => (
             <div key={facet.name}>
-              <p className="overline mb-3">{facet.name}</p>
+              <p className="eyebrow mb-3">{facet.name}</p>
               <div className="flex flex-wrap gap-2.5">
                 {facet.values.map((value) => (
                   <button

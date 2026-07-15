@@ -16,7 +16,7 @@ export function Hero({ image }: { image?: string | null }) {
       <div className="absolute inset-0 bg-gradient-to-t from-ink/45 via-ink/10 to-transparent" />
 
       <div className="relative h-full mx-auto max-w-[1400px] px-6 md:px-10 flex flex-col items-center justify-center text-center text-porcelain">
-        <p className="overline text-porcelain/70 animate-rise">The Winter Collection</p>
+        <p className="eyebrow text-porcelain/70 animate-rise">The Winter Collection</p>
         <h1 className="font-display font-light text-5xl md:text-7xl lg:text-[5.5rem] mt-6 leading-[1.02] tracking-[0.01em] animate-rise">
           Light, held<br />for a lifetime
         </h1>

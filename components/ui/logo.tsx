@@ -23,7 +23,7 @@ export function Logo({ src }: { src?: string | null }) {
       <span className="block font-display font-light text-2xl md:text-[1.85rem] tracking-[0.24em] text-ink">
         ETTY HEKELMAN
       </span>
-      <span className="block overline mt-1.5 text-ash tracking-[0.42em]">London</span>
+      <span className="block eyebrow mt-1.5 text-ash tracking-[0.42em]">London</span>
     </span>
   );
 }

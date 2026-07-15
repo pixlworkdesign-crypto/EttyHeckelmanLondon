@@ -36,7 +36,7 @@ export function Footer() {
       <div className="border-b border-white/10">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <p className="overline text-champagne">The House of Etty Hekelman</p>
+            <p className="eyebrow text-champagne">The House of Etty Hekelman</p>
             <h2 className="font-display text-3xl md:text-4xl mt-3 leading-tight">
               Join our private client list
             </h2>
@@ -66,7 +66,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 grid grid-cols-2 md:grid-cols-4 gap-10">
         <div className="col-span-2 md:col-span-1">
           <span className="font-display text-2xl tracking-[0.14em]">ETTY HEKELMAN</span>
-          <p className="overline text-champagne mt-1">London</p>
+          <p className="eyebrow text-champagne mt-1">London</p>
           <p className="text-porcelain/55 text-sm font-light mt-5 max-w-xs">
             Fine jewellery, handcrafted in London. Each piece is made to be treasured and
             passed on.
@@ -74,7 +74,7 @@ export function Footer() {
         </div>
         {COLUMNS.map((col) => (
           <div key={col.heading}>
-            <h3 className="overline text-porcelain/70 mb-5">{col.heading}</h3>
+            <h3 className="eyebrow text-porcelain/70 mb-5">{col.heading}</h3>
             <ul className="space-y-3">
               {col.links.map((link) => (
                 <li key={link.label}>

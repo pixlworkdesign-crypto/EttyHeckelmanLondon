@@ -108,7 +108,7 @@ Defined in `app/globals.css` (`@theme`). Swap these to re-skin the house:
 | Token          | Value      | Use                     |
 | -------------- | ---------- | ----------------------- |
 | `--color-ink`  | `#1c1a17`  | Primary text / buttons  |
-| `--color-champagne` | `#b08d57` | Accent / overlines |
+| `--color-champagne` | `#b08d57` | Accent / eyebrows |
 | `--color-ivory` | `#f8f6f1` | Section backgrounds     |
 | `--color-porcelain` | `#fdfcfa` | Page background     |
 

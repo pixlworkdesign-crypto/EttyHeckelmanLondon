@@ -12,7 +12,7 @@ export default function WishlistPage() {
   return (
     <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 md:py-24">
       <header className="text-center mb-14">
-        <p className="overline">Kept Close</p>
+        <p className="eyebrow">Kept Close</p>
         <h1 className="font-display text-5xl md:text-6xl mt-3">Your Wishlist</h1>
         <p className="text-ash font-light mt-4">
           The pieces you have saved to revisit, share or make your own.

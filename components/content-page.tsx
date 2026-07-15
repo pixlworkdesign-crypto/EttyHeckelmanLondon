@@ -4,12 +4,12 @@ import Link from "next/link";
  * Shared layout for long-form editorial pages (policies, care, guides).
  */
 export function ContentPage({
-  overline,
+  eyebrow,
   title,
   intro,
   children,
 }: {
-  overline?: string;
+  eyebrow?: string;
   title: string;
   intro?: string;
   children: React.ReactNode;
@@ -23,7 +23,7 @@ export function ContentPage({
       </nav>
 
       <header className="text-center mb-12 md:mb-16">
-        {overline && <p className="overline">{overline}</p>}
+        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
         <h1 className="font-display text-4xl md:text-6xl mt-3 leading-[1.05]">{title}</h1>
         {intro && <p className="text-ash font-light mt-5 leading-relaxed">{intro}</p>}
         <div className="rule-motif mt-8">

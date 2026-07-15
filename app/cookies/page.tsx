@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function CookiesPage() {
   return (
-    <ContentPage overline="Legal" title="Cookie Policy">
+    <ContentPage eyebrow="Legal" title="Cookie Policy">
       <p>
         Cookies are small text files stored on your device that help our website function and help
         us understand how it is used. This policy explains how we use them.

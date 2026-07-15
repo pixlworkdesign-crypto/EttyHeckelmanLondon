@@ -23,7 +23,7 @@ export default function AppointmentsPage() {
         />
         <div className="absolute inset-0 bg-ink/25" />
         <div className="absolute bottom-0 left-0 p-12 text-porcelain">
-          <p className="overline text-porcelain/80">By Appointment</p>
+          <p className="eyebrow text-porcelain/80">By Appointment</p>
           <h2 className="font-display text-4xl mt-2 max-w-sm leading-tight">
             An unhurried, private experience
           </h2>
@@ -34,7 +34,7 @@ export default function AppointmentsPage() {
       <div className="px-5 md:px-12 lg:px-16 py-16 md:py-20">
         <div className="max-w-lg mx-auto">
           <header className="mb-10">
-            <p className="overline">Private Appointments</p>
+            <p className="eyebrow">Private Appointments</p>
             <h1 className="font-display text-4xl md:text-5xl mt-3 leading-tight">
               Book Your Visit
             </h1>

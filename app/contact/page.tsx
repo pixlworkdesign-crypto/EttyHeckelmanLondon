@@ -25,7 +25,7 @@ export default async function ContactPage() {
   return (
     <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 md:py-24">
       <header className="text-center max-w-2xl mx-auto mb-16">
-        <p className="overline">We would love to hear from you</p>
+        <p className="eyebrow">We would love to hear from you</p>
         <h1 className="font-display text-5xl md:text-6xl mt-3">Contact &amp; Appointments</h1>
         <p className="text-ash font-light mt-4">
           Whether you are beginning a bespoke commission or would like to view a piece in
@@ -37,14 +37,14 @@ export default async function ContactPage() {
         <aside className="space-y-10">
           {CONTACT.address && (
             <div>
-              <h2 className="overline text-champagne mb-3">The Showroom</h2>
+              <h2 className="eyebrow text-champagne mb-3">The Showroom</h2>
               <p className="font-light text-ash leading-relaxed whitespace-pre-line">
                 {CONTACT.address}
               </p>
             </div>
           )}
           <div>
-            <h2 className="overline text-champagne mb-3">Enquiries</h2>
+            <h2 className="eyebrow text-champagne mb-3">Enquiries</h2>
             <ul className="font-light text-ash leading-relaxed space-y-1.5">
               {CONTACT.email && (
                 <li>
@@ -75,7 +75,7 @@ export default async function ContactPage() {
             </ul>
           </div>
           <div>
-            <h2 className="overline text-champagne mb-3">Opening Hours</h2>
+            <h2 className="eyebrow text-champagne mb-3">Opening Hours</h2>
             <p className="font-light text-ash leading-relaxed whitespace-pre-line">{hours}</p>
           </div>
         </aside>

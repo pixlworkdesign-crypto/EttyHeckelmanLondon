@@ -12,7 +12,7 @@ export function AppointmentForm() {
         <div className="rule-motif mb-6">
           <span />
         </div>
-        <p className="overline text-champagne">Request Received</p>
+        <p className="eyebrow text-champagne">Request Received</p>
         <h3 className="font-display text-3xl mt-3">We look forward to welcoming you</h3>
         <p className="text-ash font-light mt-3">
           A member of our team will be in touch shortly to confirm your appointment.

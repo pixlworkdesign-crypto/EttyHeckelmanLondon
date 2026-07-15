@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function JewelleryCarePage() {
   return (
     <ContentPage
-      overline="The Atelier"
+      eyebrow="The Atelier"
       title="Caring for Your Jewellery"
       intro="Fine jewellery is made to be worn and enjoyed. A little care keeps every stone and setting looking its best for generations."
     >

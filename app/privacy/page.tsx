@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <ContentPage overline="Legal" title="Privacy Policy">
+    <ContentPage eyebrow="Legal" title="Privacy Policy">
       <p>
         This Privacy Policy explains how <strong>Etty Hekelman London</strong> (&ldquo;we&rdquo;,
         &ldquo;us&rdquo;) collects, uses and protects your personal information when you visit our

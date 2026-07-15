@@ -8,7 +8,7 @@ export function ContactForm() {
   if (submitted) {
     return (
       <div className="border border-line bg-ivory px-8 py-12 text-center">
-        <p className="overline text-champagne">Thank you</p>
+        <p className="eyebrow text-champagne">Thank you</p>
         <h3 className="font-display text-3xl mt-3">We&apos;ll be in touch shortly</h3>
         <p className="text-ash font-light mt-3">
           A member of our team will respond within one business day.

@@ -74,7 +74,7 @@ export default async function ProductPage({
       {related.length > 0 && (
         <section className="mt-24 md:mt-32">
           <div className="text-center mb-12">
-            <p className="overline">You may also love</p>
+            <p className="eyebrow">You may also love</p>
             <h2 className="font-display text-4xl mt-2">Complete the Look</h2>
           </div>
           <ProductGrid products={related} />

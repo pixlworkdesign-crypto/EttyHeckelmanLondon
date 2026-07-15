@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ShippingReturnsPage() {
   return (
     <ContentPage
-      overline="Client Care"
+      eyebrow="Client Care"
       title="Shipping, Returns & Warranty"
       intro="Every order is handled with the same care as the jewellery itself — discreetly packaged, fully insured and supported for a lifetime."
     >

@@ -29,7 +29,7 @@ export default function BespokePage() {
         />
         <div className="absolute inset-0 bg-ink/45" />
         <div className="relative h-full flex flex-col items-center justify-center text-center text-porcelain px-6">
-          <p className="overline text-porcelain/80">The Bespoke Service</p>
+          <p className="eyebrow text-porcelain/80">The Bespoke Service</p>
           <h1 className="font-display text-5xl md:text-7xl mt-4 max-w-3xl leading-tight">
             A piece entirely your own
           </h1>
@@ -45,7 +45,7 @@ export default function BespokePage() {
 
       <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-20 md:py-28">
         <div className="text-center mb-16">
-          <p className="overline">The Journey</p>
+          <p className="eyebrow">The Journey</p>
           <h2 className="font-display text-4xl md:text-5xl mt-3">Four Steps to Forever</h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -61,7 +61,7 @@ export default function BespokePage() {
 
       <section className="bg-ink text-porcelain">
         <div className="mx-auto max-w-3xl px-6 py-20 md:py-28 text-center">
-          <p className="overline text-champagne">Begin</p>
+          <p className="eyebrow text-champagne">Begin</p>
           <h2 className="font-display text-4xl md:text-5xl mt-4">
             Let us create something extraordinary
           </h2>

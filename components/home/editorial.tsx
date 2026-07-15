@@ -8,7 +8,7 @@ export function SignaturePackaging() {
       <div className="grid md:grid-cols-2 items-stretch">
         <div className="order-2 md:order-1 bg-ivory flex items-center">
           <div className="px-8 md:px-16 py-14 md:py-0 max-w-xl">
-            <p className="overline">The Experience</p>
+            <p className="eyebrow">The Experience</p>
             <h2 className="font-display text-4xl md:text-5xl mt-3 leading-tight">
               Presented beautifully
             </h2>
@@ -56,7 +56,7 @@ export function StorySplit() {
         </div>
         <div className="order-2 bg-ivory flex items-center">
           <div className="px-8 md:px-16 py-14 md:py-0 max-w-xl">
-            <p className="overline">Our Craft</p>
+            <p className="eyebrow">Our Craft</p>
             <h2 className="font-display text-4xl md:text-5xl mt-3 leading-tight">
               Made by hand,<br />in London
             </h2>
@@ -91,7 +91,7 @@ export function BespokeBanner() {
       />
       <div className="absolute inset-0 bg-ink/45" />
       <div className="relative h-full flex flex-col items-center justify-center text-center text-porcelain px-6">
-        <p className="overline text-porcelain/80">A piece entirely your own</p>
+        <p className="eyebrow text-porcelain/80">A piece entirely your own</p>
         <h2 className="font-display text-4xl md:text-6xl mt-4 max-w-3xl leading-tight">
           The Bespoke Commission
         </h2>
@@ -120,7 +120,7 @@ export function ValueRow() {
       <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-line">
         {VALUES.map(({ title, body }) => (
           <div key={title} className="px-6 md:px-8 py-10 md:py-14 text-center">
-            <h3 className="overline text-ink">{title}</h3>
+            <h3 className="eyebrow text-ink">{title}</h3>
             <p className="text-sm text-ash font-light mt-3.5 leading-relaxed max-w-[15rem] mx-auto">
               {body}
             </p>

@@ -114,7 +114,7 @@ export function ProductDetail({ product }: { product: Product }) {
 
       {/* Details */}
       <div className="lg:py-6 lg:pr-8">
-        <p className="overline">{product.productType || "Fine Jewellery"}</p>
+        <p className="eyebrow">{product.productType || "Fine Jewellery"}</p>
         <h1 className="font-display text-4xl md:text-5xl mt-3 leading-[1.05]">{product.title}</h1>
         {(() => {
           const activePrice = selectedVariant?.price ?? product.priceRange.minVariantPrice;
