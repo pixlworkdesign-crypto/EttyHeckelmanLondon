@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { getCollections, getProducts, getSiteSettings } from "@/lib/shopify";
+import { getProducts, getSiteSettings } from "@/lib/shopify";
 import { Hero } from "@/components/home/hero";
-import { CategoryTiles } from "@/components/home/category-tiles";
 import { StorySplit, BespokeBanner, ValueRow, SignaturePackaging } from "@/components/home/editorial";
 import { ProductGrid } from "@/components/product/product-grid";
 import { Reveal } from "@/components/ui/reveal";
@@ -9,8 +8,7 @@ import { Reveal } from "@/components/ui/reveal";
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const [collections, products, settings] = await Promise.all([
-    getCollections(),
+  const [products, settings] = await Promise.all([
     getProducts({ first: 8 }),
     getSiteSettings(),
   ]);
@@ -21,10 +19,6 @@ export default async function HomePage() {
     <>
       <Hero image={settings.heroUrl} />
       <ValueRow />
-
-      <Reveal>
-        <CategoryTiles collections={collections} />
-      </Reveal>
 
       {/* Featured pieces */}
       <Reveal as="section" className="mx-auto max-w-[1400px] px-5 md:px-10 pb-20 md:pb-28">
