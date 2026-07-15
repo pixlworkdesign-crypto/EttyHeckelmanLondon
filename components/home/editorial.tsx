@@ -1,10 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-
-// Signature packaging / brand-experience image. Swap this for your own
-// packaging photograph (upload to Shopify Files and paste me the link).
-const PACKAGING_IMAGE =
-  "https://images.unsplash.com/photo-1600721391689-2564bb8055de?auto=format&fit=crop&w=1400&q=80";
+import { PACKAGING_IMAGE } from "@/lib/site";
 
 export function SignaturePackaging() {
   return (

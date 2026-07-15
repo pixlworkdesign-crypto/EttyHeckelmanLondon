@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ContentPage } from "@/components/content-page";
+import { PACKAGING_IMAGE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Shipping, Returns & Warranty",
@@ -46,7 +47,7 @@ export default function ShippingReturnsPage() {
       <h2>Signature Packaging</h2>
       <div className="not-prose my-6 relative aspect-[16/10] overflow-hidden bg-ivory">
         <Image
-          src="https://images.unsplash.com/photo-1600721391689-2564bb8055de?auto=format&fit=crop&w=1400&q=80"
+          src={PACKAGING_IMAGE}
           alt="Etty Hekelman London signature packaging"
           fill
           sizes="(max-width: 768px) 100vw, 768px"

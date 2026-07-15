@@ -11,6 +11,13 @@ export const HERO_IMAGE =
   process.env.NEXT_PUBLIC_HERO_IMAGE ??
   "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=2000&q=80";
 
+// Signature-packaging photo (homepage "Presented beautifully" section and the
+// Shipping page). Swap this one value for your own photo — upload it to Shopify
+// Files, then paste the link here (or set NEXT_PUBLIC_PACKAGING_IMAGE).
+export const PACKAGING_IMAGE =
+  process.env.NEXT_PUBLIC_PACKAGING_IMAGE ??
+  "https://images.unsplash.com/photo-1600721391689-2564bb8055de?auto=format&fit=crop&w=1400&q=80";
+
 // Contact details, edited here in code (opening hours are managed separately in
 // Shopify → Site Settings). Leave a field as an empty string to hide it.
 export const CONTACT = {
