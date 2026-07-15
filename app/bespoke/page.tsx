@@ -12,7 +12,7 @@ const STEPS = [
   { n: "01", t: "Consultation", d: "We begin with an unhurried conversation — in person or virtually — to understand the piece and the moment behind it." },
   { n: "02", t: "Design", d: "Our designers translate your vision into hand-drawn sketches and detailed renders for your approval." },
   { n: "03", t: "Stone Selection", d: "We present a curated selection of ethically sourced stones, each chosen for its life and character." },
-  { n: "04", t: "Creation", d: "Master goldsmiths bring your piece to life by hand in our London atelier, then present it in our signature packaging." },
+  { n: "04", t: "Creation", d: "Master goldsmiths bring your piece to life by hand in our atelier, then present it in our signature packaging." },
 ];
 
 export default function BespokePage() {

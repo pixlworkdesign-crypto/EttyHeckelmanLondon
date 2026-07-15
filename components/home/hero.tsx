@@ -4,7 +4,7 @@ import { HERO_IMAGE } from "@/lib/site";
 
 export function Hero({ image }: { image?: string | null }) {
   return (
-    <section className="relative h-[86vh] min-h-[560px] w-full overflow-hidden">
+    <section className="relative h-[92vh] min-h-[600px] w-full overflow-hidden">
       <Image
         src={image || HERO_IMAGE}
         alt="Etty Hekelman London fine jewellery"
@@ -13,18 +13,18 @@ export function Hero({ image }: { image?: string | null }) {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/45 via-ink/10 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-ink/10 to-ink/5" />
 
       <div className="relative h-full mx-auto max-w-[1400px] px-6 md:px-10 flex flex-col items-center justify-center text-center text-porcelain">
-        <p className="eyebrow text-porcelain/70 animate-rise">The Winter Collection</p>
-        <h1 className="font-display font-light text-5xl md:text-7xl lg:text-[5.5rem] mt-6 leading-[1.02] tracking-[0.01em] animate-rise">
+        <p className="eyebrow text-porcelain/75 animate-rise">The Winter Collection</p>
+        <h1 className="font-display font-light text-[2.9rem] md:text-7xl lg:text-[5.75rem] mt-7 leading-[1.06] tracking-[0.015em] animate-rise">
           Light, held<br />for a lifetime
         </h1>
-        <p className="mt-7 max-w-md text-porcelain/85 font-light md:text-lg leading-relaxed animate-rise">
-          Fine jewellery, handcrafted in London. Rare stones, set by hand, made to be
+        <p className="mt-8 max-w-md text-porcelain/85 font-light md:text-lg leading-relaxed tracking-wide animate-rise">
+          Fine jewellery, handcrafted with care. Rare stones, set by hand, made to be
           treasured and passed on.
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 animate-rise">
+        <div className="mt-11 flex flex-col sm:flex-row gap-4 animate-rise">
           <Link href="/collections/rings" className="btn btn-primary bg-porcelain text-ink hover:bg-champagne hover:text-porcelain">
             Shop Engagement
           </Link>

@@ -58,7 +58,7 @@ export function StorySplit() {
           <div className="px-8 md:px-16 py-14 md:py-0 max-w-xl">
             <p className="eyebrow">Our Craft</p>
             <h2 className="font-display text-4xl md:text-5xl mt-3 leading-tight">
-              Made by hand,<br />in London
+              Made<br />by hand
             </h2>
             <p className="text-ash font-light leading-relaxed mt-6">
               Every Etty Hekelman piece begins as a sketch and ends in the hands of a
@@ -109,7 +109,7 @@ export function BespokeBanner() {
 
 const VALUES = [
   { title: "Fine Jewellery", body: "Rare stones, hand-set with exacting care." },
-  { title: "Designed in London", body: "Drawn and crafted in our London atelier." },
+  { title: "Considered Design", body: "Every detail drawn and refined by hand." },
   { title: "Timeless Design", body: "Made to be worn today and treasured always." },
   { title: "Made to Last", body: "Built to endure, backed by lifetime aftercare." },
 ];

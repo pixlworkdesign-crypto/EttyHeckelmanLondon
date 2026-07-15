@@ -62,7 +62,7 @@ export function CartDrawer() {
           <div className="flex-1 flex flex-col items-center justify-center text-center px-8 gap-5">
             <p className="font-display text-2xl text-ink">Your bag is empty</p>
             <p className="text-sm text-ash font-light">
-              Discover our latest pieces, crafted by hand in London.
+              Discover our latest pieces, crafted by hand.
             </p>
             <Link href="/collections/rings" onClick={closeCart} className="btn btn-primary mt-2">
               Explore the collection

@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     template: "%s · ETTY HEKELMAN LONDON",
   },
   description:
-    "ETTY HEKELMAN LONDON — fine jewellery handcrafted in London. Diamond engagement rings, earrings, necklaces and bespoke commissions.",
+    "ETTY HEKELMAN LONDON — fine jewellery handcrafted with care. Diamond engagement rings, earrings, necklaces and bespoke commissions.",
   keywords: [
     "fine jewellery",
     "diamond rings",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ETTY HEKELMAN LONDON — Fine Jewellery",
     description:
-      "Fine jewellery handcrafted in London. Diamond engagement rings, earrings, necklaces and bespoke commissions.",
+      "Fine jewellery handcrafted with care. Diamond engagement rings, earrings, necklaces and bespoke commissions.",
     url: siteUrl,
     siteName: "ETTY HEKELMAN LONDON",
     locale: "en_GB",

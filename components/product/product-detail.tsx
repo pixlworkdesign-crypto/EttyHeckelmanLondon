@@ -218,7 +218,7 @@ export function ProductDetail({ product }: { product: Product }) {
         <div className="mt-10 border-t border-line pt-8 grid grid-cols-2 gap-6 text-sm font-light text-ash">
           <div>
             <p className="text-ink text-xs uppercase tracking-[0.14em] mb-1.5">Handcrafted</p>
-            Made by hand in our London atelier.
+            Made by hand in our atelier.
           </div>
           <div>
             <p className="text-ink text-xs uppercase tracking-[0.14em] mb-1.5">Lifetime care</p>

@@ -54,24 +54,19 @@ export function ProductCard({ product, priority = false }: { product: Product; p
             currencyCode: price.currencyCode,
           }}
         />
-        {/* Quiet hover affordance */}
-        <span className="absolute inset-x-0 bottom-0 py-3.5 text-center text-[0.62rem] uppercase tracking-[0.22em] text-ink bg-porcelain/90 backdrop-blur-sm translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]">
-          View Piece
-        </span>
       </div>
-      <div className="pt-5 text-center">
-        <p className="eyebrow text-ash/70 mb-1.5">{product.productType}</p>
-        <h3 className="font-display text-xl text-ink transition-colors group-hover:text-champagne-dark">
+      <div className="pt-6 text-center">
+        <h3 className="font-display text-xl md:text-[1.4rem] leading-snug text-ink transition-colors duration-500 group-hover:text-champagne">
           {product.title}
         </h3>
-        <p className="text-[0.82rem] mt-2 tracking-[0.06em]">
+        <p className="text-[0.8rem] mt-2.5 tracking-[0.1em] text-ash">
           {onSale ? (
             <>
-              <span className="text-ash/70 line-through mr-2">{formatPrice(compareAt)}</span>
+              <span className="line-through mr-2 opacity-60">{formatPrice(compareAt)}</span>
               <span className="text-champagne-dark">{formatPrice(price)}</span>
             </>
           ) : (
-            <span className="text-ash">{formatPrice(price)}</span>
+            <span>{formatPrice(price)}</span>
           )}
         </p>
       </div>

@@ -19,7 +19,7 @@ export default async function CollectionsPage() {
         <p className="eyebrow">The Collections</p>
         <h1 className="font-display text-5xl md:text-6xl mt-3">Explore Our World</h1>
         <p className="text-ash font-light mt-4 max-w-xl mx-auto">
-          Each collection is designed and handcrafted in our London atelier, using the
+          Each collection is designed and handcrafted in our atelier, using the
           finest ethically sourced stones.
         </p>
       </header>

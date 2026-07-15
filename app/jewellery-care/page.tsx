@@ -4,7 +4,7 @@ import { ContentPage } from "@/components/content-page";
 export const metadata: Metadata = {
   title: "Jewellery Care",
   description:
-    "How to care for your fine jewellery — storage, cleaning and servicing advice from the Etty Hekelman London atelier.",
+    "How to care for your fine jewellery — storage, cleaning and servicing advice from Etty Hekelman London.",
 };
 
 export default function JewelleryCarePage() {

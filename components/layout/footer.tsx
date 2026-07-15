@@ -68,7 +68,7 @@ export function Footer() {
           <span className="font-display text-2xl tracking-[0.14em]">ETTY HEKELMAN</span>
           <p className="eyebrow text-champagne mt-1">London</p>
           <p className="text-porcelain/55 text-sm font-light mt-5 max-w-xs">
-            Fine jewellery, handcrafted in London. Each piece is made to be treasured and
+            Fine jewellery, handcrafted with care. Each piece is made to be treasured and
             passed on.
           </p>
         </div>

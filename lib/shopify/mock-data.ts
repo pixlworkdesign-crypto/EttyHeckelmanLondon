@@ -181,7 +181,7 @@ export const MOCK_COLLECTIONS: Collection[] = [
     handle: "rings",
     title: "Rings",
     description:
-      "Engagement, eternity and cocktail rings — each stone hand-selected and set in our London atelier.",
+      "Engagement, eternity and cocktail rings — each stone hand-selected and set in our atelier.",
     image: img(U("1605100804763-247f67b3557e"), "Rings"),
   },
   {
