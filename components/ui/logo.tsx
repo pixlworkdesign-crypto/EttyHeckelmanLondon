@@ -13,9 +13,7 @@ export function Logo({ src }: { src?: string | null }) {
       <img
         src={url}
         alt="Etty Hekelman London"
-        // mix-blend-multiply makes the logo's light background blend into the
-        // page (dark lettering stays), so its box/edge disappears on the cream.
-        className="h-12 md:h-14 w-auto object-contain mx-auto mix-blend-multiply"
+        className="h-20 md:h-28 w-auto object-contain mx-auto"
       />
     );
   }
