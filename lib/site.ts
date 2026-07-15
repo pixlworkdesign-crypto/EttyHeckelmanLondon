@@ -16,7 +16,7 @@ export const HERO_IMAGE =
 // Files, then paste the link here (or set NEXT_PUBLIC_PACKAGING_IMAGE).
 export const PACKAGING_IMAGE =
   process.env.NEXT_PUBLIC_PACKAGING_IMAGE ??
-  "https://images.unsplash.com/photo-1600721391689-2564bb8055de?auto=format&fit=crop&w=1400&q=80";
+  "https://cdn.shopify.com/s/files/1/0740/9149/5555/files/740C6223-B870-4F75-8666-51DAAE04DE98.jpg?v=1784131710";
 
 // Contact details, edited here in code (opening hours are managed separately in
 // Shopify → Site Settings). Leave a field as an empty string to hide it.
