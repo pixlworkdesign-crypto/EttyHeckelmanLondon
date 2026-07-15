@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 /**
- * Fades and lifts its children into view as they enter the viewport —
- * the quiet, editorial motion that reads as "considered" on luxury sites.
- * Respects prefers-reduced-motion via the .reveal CSS.
+ * Fades and lifts its children into view as they enter the viewport.
+ * Fails safe: if IntersectionObserver is unavailable or hasn't fired, a short
+ * fallback timer reveals the content so it can never stay hidden.
  */
 export function Reveal({
   children,
@@ -24,7 +24,11 @@ export function Reveal({
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setShown(true);
+      return;
+    }
+
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -32,10 +36,17 @@ export function Reveal({
           io.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
+      { threshold: 0, rootMargin: "0px 0px -40px 0px" }
     );
     io.observe(el);
-    return () => io.disconnect();
+
+    // Safety net — reveal regardless after a moment so content is never stuck.
+    const fallback = window.setTimeout(() => setShown(true), 600);
+
+    return () => {
+      io.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
 
   return (
