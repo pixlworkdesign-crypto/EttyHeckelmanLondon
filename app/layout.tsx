@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const { logoUrl, whatsapp } = await getSiteSettings();
+  const { logoUrl } = await getSiteSettings();
   return (
     <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
       <body>
@@ -66,7 +66,7 @@ export default async function RootLayout({
             <main className="min-h-screen">{children}</main>
             <Footer />
             <CartDrawer />
-            <WhatsAppButton number={whatsapp} />
+            <WhatsAppButton />
             <CookieConsent />
           </CartProvider>
         </WishlistProvider>

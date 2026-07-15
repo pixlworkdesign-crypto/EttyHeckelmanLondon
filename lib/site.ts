@@ -10,3 +10,12 @@ export const LOGO_URL = process.env.NEXT_PUBLIC_LOGO_URL ?? "";
 export const HERO_IMAGE =
   process.env.NEXT_PUBLIC_HERO_IMAGE ??
   "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=2000&q=80";
+
+// Contact details, edited here in code (opening hours are managed separately in
+// Shopify → Site Settings). Leave a field as an empty string to hide it.
+export const CONTACT = {
+  email: "ethelhekelman@gmail.com",
+  phone: "", // e.g. "+44 7700 900000"
+  whatsapp: "", // international, e.g. "44 7700 900000" — blank hides the button
+  address: "By appointment only\nMayfair, London\nUnited Kingdom",
+};

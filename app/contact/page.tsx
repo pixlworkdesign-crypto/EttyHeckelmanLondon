@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactForm } from "./contact-form";
 import { getSiteSettings } from "@/lib/shopify";
+import { CONTACT } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact & Appointments",
@@ -10,24 +11,16 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
-// Fallback details used until they're set in Shopify → Site Settings.
-const DEFAULTS = {
-  email: "enquiries@ettyhekelmanlondon.com",
-  phone: "+44 (0)20 7000 0000",
-  address: "By appointment only\nMayfair, London\nUnited Kingdom",
-  hours: "Monday – Friday · 10am – 6pm\nSaturday · 11am – 5pm\nSunday · By appointment",
-};
+// Opening hours are managed in Shopify → Site Settings; this is the fallback.
+const DEFAULT_HOURS =
+  "Monday – Friday · 10am – 6pm\nSaturday · 11am – 5pm\nSunday · By appointment";
 
 const telHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, "")}`;
 const waHref = (num: string) => `https://wa.me/${num.replace(/[^\d]/g, "")}`;
 
 export default async function ContactPage() {
   const settings = await getSiteSettings();
-  const email = settings.email ?? DEFAULTS.email;
-  const phone = settings.phone ?? DEFAULTS.phone;
-  const whatsapp = settings.whatsapp; // shown only if set
-  const address = settings.address ?? DEFAULTS.address;
-  const hours = settings.hours ?? DEFAULTS.hours;
+  const hours = settings.hours ?? DEFAULT_HOURS;
 
   return (
     <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 md:py-24">
@@ -42,27 +35,35 @@ export default async function ContactPage() {
 
       <div className="grid lg:grid-cols-[1fr_1.4fr] gap-14 lg:gap-20">
         <aside className="space-y-10">
-          <div>
-            <h2 className="overline text-champagne mb-3">The Showroom</h2>
-            <p className="font-light text-ash leading-relaxed whitespace-pre-line">{address}</p>
-          </div>
+          {CONTACT.address && (
+            <div>
+              <h2 className="overline text-champagne mb-3">The Showroom</h2>
+              <p className="font-light text-ash leading-relaxed whitespace-pre-line">
+                {CONTACT.address}
+              </p>
+            </div>
+          )}
           <div>
             <h2 className="overline text-champagne mb-3">Enquiries</h2>
             <ul className="font-light text-ash leading-relaxed space-y-1.5">
-              <li>
-                <a href={`mailto:${email}`} className="link-underline hover:text-ink transition-colors">
-                  {email}
-                </a>
-              </li>
-              <li>
-                <a href={telHref(phone)} className="link-underline hover:text-ink transition-colors">
-                  {phone}
-                </a>
-              </li>
-              {whatsapp && (
+              {CONTACT.email && (
+                <li>
+                  <a href={`mailto:${CONTACT.email}`} className="link-underline hover:text-ink transition-colors">
+                    {CONTACT.email}
+                  </a>
+                </li>
+              )}
+              {CONTACT.phone && (
+                <li>
+                  <a href={telHref(CONTACT.phone)} className="link-underline hover:text-ink transition-colors">
+                    {CONTACT.phone}
+                  </a>
+                </li>
+              )}
+              {CONTACT.whatsapp && (
                 <li>
                   <a
-                    href={waHref(whatsapp)}
+                    href={waHref(CONTACT.whatsapp)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="link-underline hover:text-ink transition-colors"
