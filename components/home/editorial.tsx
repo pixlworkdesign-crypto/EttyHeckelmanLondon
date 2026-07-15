@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { DiamondIcon, CrownIcon, GiftIcon, SparkleIcon } from "@/components/ui/icons";
 
 // Signature packaging / brand-experience image. Swap this for your own
 // packaging photograph (upload to Shopify Files and paste me the link).
@@ -113,21 +112,22 @@ export function BespokeBanner() {
 }
 
 const VALUES = [
-  { Icon: DiamondIcon, title: "Fine Jewellery", body: "Rare stones, hand-set with exacting care." },
-  { Icon: CrownIcon, title: "Designed in London", body: "Drawn and crafted in our London atelier." },
-  { Icon: GiftIcon, title: "Timeless Design", body: "Made to be worn today and treasured always." },
-  { Icon: SparkleIcon, title: "Made to Last", body: "Built to endure, backed by lifetime aftercare." },
+  { title: "Fine Jewellery", body: "Rare stones, hand-set with exacting care." },
+  { title: "Designed in London", body: "Drawn and crafted in our London atelier." },
+  { title: "Timeless Design", body: "Made to be worn today and treasured always." },
+  { title: "Made to Last", body: "Built to endure, backed by lifetime aftercare." },
 ];
 
 export function ValueRow() {
   return (
     <section className="border-y border-line bg-porcelain">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-line">
-        {VALUES.map(({ Icon, title, body }) => (
-          <div key={title} className="px-5 md:px-8 py-9 md:py-11 text-center flex flex-col items-center">
-            <Icon className="w-7 h-7 text-champagne mb-4" />
+        {VALUES.map(({ title, body }) => (
+          <div key={title} className="px-6 md:px-8 py-10 md:py-14 text-center">
             <h3 className="overline text-ink">{title}</h3>
-            <p className="text-sm text-ash font-light mt-2.5 leading-relaxed max-w-[16rem]">{body}</p>
+            <p className="text-sm text-ash font-light mt-3.5 leading-relaxed max-w-[15rem] mx-auto">
+              {body}
+            </p>
           </div>
         ))}
       </div>
