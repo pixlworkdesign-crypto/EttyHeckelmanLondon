@@ -104,6 +104,11 @@ export const getSiteSettingsQuery = /* GraphQL */ `
               }
             }
           }
+          email: field(key: "contact_email") { value }
+          phone: field(key: "contact_phone") { value }
+          whatsapp: field(key: "whatsapp_number") { value }
+          address: field(key: "address") { value }
+          hours: field(key: "opening_hours") { value }
         }
       }
     }

@@ -217,24 +217,55 @@ export async function removeFromCart(cartId: string, lineIds: string[]): Promise
 
 // --- site settings (merchant-controlled logo & hero via a metaobject) -------
 
-export type SiteSettings = { logoUrl: string | null; heroUrl: string | null };
+export type SiteSettings = {
+  logoUrl: string | null;
+  heroUrl: string | null;
+  email: string | null;
+  phone: string | null;
+  whatsapp: string | null;
+  address: string | null;
+  hours: string | null;
+};
 
 type MetaImageField = { reference?: { image?: { url?: string | null } | null } | null } | null;
+type MetaTextField = { value?: string | null } | null;
 
 export async function getSiteSettings(): Promise<SiteSettings> {
-  const empty: SiteSettings = { logoUrl: null, heroUrl: null };
+  const empty: SiteSettings = {
+    logoUrl: null,
+    heroUrl: null,
+    email: null,
+    phone: null,
+    whatsapp: null,
+    address: null,
+    hours: null,
+  };
   if (!isShopifyConfigured) return empty;
   try {
     const data = await shopifyFetch<{
-      metaobjects: Connection<{ logo?: MetaImageField; hero?: MetaImageField }>;
+      metaobjects: Connection<{
+        logo?: MetaImageField;
+        hero?: MetaImageField;
+        email?: MetaTextField;
+        phone?: MetaTextField;
+        whatsapp?: MetaTextField;
+        address?: MetaTextField;
+        hours?: MetaTextField;
+      }>;
     }>({
       query: getSiteSettingsQuery,
       tags: ["site-settings"],
     });
     const node = data.metaobjects?.edges?.[0]?.node;
+    const text = (f?: MetaTextField) => (f?.value?.trim() ? f.value.trim() : null);
     return {
       logoUrl: node?.logo?.reference?.image?.url ?? null,
       heroUrl: node?.hero?.reference?.image?.url ?? null,
+      email: text(node?.email),
+      phone: text(node?.phone),
+      whatsapp: text(node?.whatsapp),
+      address: text(node?.address),
+      hours: text(node?.hours),
     };
   } catch {
     // The metaobject may not exist yet — fall back silently to defaults.
