@@ -84,6 +84,40 @@ export function ChevronDownIcon({ className }: IconProps) {
   );
 }
 
+export function DiamondIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.1" className={className} aria-hidden>
+      <path d="M6 3h12l3 5-9 13L3 8l3-5Z" strokeLinejoin="round" />
+      <path d="M3 8h18M9 3 7 8l5 13 5-13-2-5" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function CrownIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.1" className={className} aria-hidden>
+      <path d="M4 18h16M4 18l-1.5-9 5 4L12 5l4.5 8 5-4L20 18" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function GiftIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.1" className={className} aria-hidden>
+      <path d="M4 11h16v9H4v-9ZM3 7h18v4H3V7ZM12 7v13" strokeLinejoin="round" />
+      <path d="M12 7S10 3 7.5 4C5.5 5 7 7 9 7h3Zm0 0s2-4 4.5-3C18.5 5 17 7 15 7h-3Z" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function SparkleIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.1" className={className} aria-hidden>
+      <path d="M12 3c.6 4.5 2.5 6.4 7 7-4.5.6-6.4 2.5-7 7-.6-4.5-2.5-6.4-7-7 4.5-.6 6.4-2.5 7-7Z" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function WhatsAppIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>

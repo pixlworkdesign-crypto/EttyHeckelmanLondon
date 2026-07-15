@@ -1,5 +1,50 @@
 import Image from "next/image";
 import Link from "next/link";
+import { DiamondIcon, CrownIcon, GiftIcon, SparkleIcon } from "@/components/ui/icons";
+
+// Signature packaging / brand-experience image. Swap this for your own
+// packaging photograph (upload to Shopify Files and paste me the link).
+const PACKAGING_IMAGE =
+  "https://images.unsplash.com/photo-1600721391689-2564bb8055de?auto=format&fit=crop&w=1400&q=80";
+
+export function SignaturePackaging() {
+  return (
+    <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 md:py-24">
+      <div className="grid md:grid-cols-2 items-stretch">
+        <div className="order-2 md:order-1 bg-ivory flex items-center">
+          <div className="px-8 md:px-16 py-14 md:py-0 max-w-xl">
+            <p className="overline">The Experience</p>
+            <h2 className="font-display text-4xl md:text-5xl mt-3 leading-tight">
+              Presented beautifully
+            </h2>
+            <p className="text-ash font-light leading-relaxed mt-6">
+              Every piece arrives in our signature packaging — a hand-finished box, a soft
+              microfibre pouch and polishing cloth, wrapped in tissue and finished with our
+              seal. Made to be given, and to be kept.
+            </p>
+            <ul className="mt-7 space-y-2.5 text-sm text-ash font-light">
+              <li>Signature boxes &amp; suede pouches</li>
+              <li>Complimentary gift wrapping</li>
+              <li>Discreet, fully insured worldwide delivery</li>
+            </ul>
+            <Link href="/shipping-returns" className="btn btn-outline mt-8">
+              Shipping &amp; Gifting
+            </Link>
+          </div>
+        </div>
+        <div className="order-1 md:order-2 relative aspect-[4/3] md:aspect-auto md:min-h-[560px]">
+          <Image
+            src={PACKAGING_IMAGE}
+            alt="Etty Hekelman London signature packaging"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export function StorySplit() {
   return (
@@ -68,20 +113,21 @@ export function BespokeBanner() {
 }
 
 const VALUES = [
-  { title: "Ethically Sourced", body: "Conflict-free, fully traceable diamonds and precious metals." },
-  { title: "Lifetime Aftercare", body: "Complimentary cleaning, servicing and re-sizing, forever." },
-  { title: "Insured Delivery", body: "Discreet, fully insured worldwide delivery on every order." },
-  { title: "Private Appointments", body: "Meet us for an unhurried, one-to-one viewing in London." },
+  { Icon: DiamondIcon, title: "Fine Jewellery", body: "Rare stones, hand-set with exacting care." },
+  { Icon: CrownIcon, title: "Designed in London", body: "Drawn and crafted in our London atelier." },
+  { Icon: GiftIcon, title: "Timeless Design", body: "Made to be worn today and treasured always." },
+  { Icon: SparkleIcon, title: "Made to Last", body: "Built to endure, backed by lifetime aftercare." },
 ];
 
 export function ValueRow() {
   return (
-    <section className="border-y border-line">
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-2 lg:grid-cols-4 divide-x divide-line">
-        {VALUES.map((v) => (
-          <div key={v.title} className="px-5 md:px-8 py-10 text-center">
-            <h3 className="overline text-champagne">{v.title}</h3>
-            <p className="text-sm text-ash font-light mt-3 leading-relaxed">{v.body}</p>
+    <section className="border-y border-line bg-porcelain">
+      <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-line">
+        {VALUES.map(({ Icon, title, body }) => (
+          <div key={title} className="px-5 md:px-8 py-9 md:py-11 text-center flex flex-col items-center">
+            <Icon className="w-7 h-7 text-champagne mb-4" />
+            <h3 className="overline text-ink">{title}</h3>
+            <p className="text-sm text-ash font-light mt-2.5 leading-relaxed max-w-[16rem]">{body}</p>
           </div>
         ))}
       </div>

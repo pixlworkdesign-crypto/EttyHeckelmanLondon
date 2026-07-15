@@ -12,6 +12,7 @@ export function ProductDetail({ product }: { product: Product }) {
   const { addItem } = useCart();
   const [activeImage, setActiveImage] = useState(0);
   const [added, setAdded] = useState(false);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   // Track a selected value per option name.
   const [selections, setSelections] = useState<Record<string, string>>(() =>
@@ -27,6 +28,18 @@ export function ProductDetail({ product }: { product: Product }) {
   }, [product.variants, selections]);
 
   const images = product.images.length ? product.images : product.featuredImage ? [product.featuredImage] : [];
+
+  const goToImage = (i: number) => {
+    if (images.length === 0) return;
+    setActiveImage((i + images.length) % images.length);
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) goToImage(activeImage + (dx < 0 ? 1 : -1));
+    setTouchStartX(null);
+  };
 
   const handleAdd = () => {
     if (!selectedVariant) return;
@@ -64,7 +77,11 @@ export function ProductDetail({ product }: { product: Product }) {
             ))}
           </div>
         )}
-        <div className="relative flex-1 aspect-[4/5] overflow-hidden bg-ivory">
+        <div
+          className="relative flex-1 aspect-[4/5] overflow-hidden bg-ivory touch-pan-y select-none"
+          onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
+          onTouchEnd={onTouchEnd}
+        >
           {images[activeImage] && (
             <Image
               src={images[activeImage].url}
@@ -73,7 +90,24 @@ export function ProductDetail({ product }: { product: Product }) {
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
+              draggable={false}
             />
+          )}
+          {/* Swipe dots (mobile) */}
+          {images.length > 1 && (
+            <div className="md:hidden absolute bottom-4 inset-x-0 flex justify-center gap-2">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => goToImage(i)}
+                  aria-label={`Go to image ${i + 1}`}
+                  className={cn(
+                    "h-1.5 rounded-full transition-all",
+                    i === activeImage ? "w-5 bg-ink" : "w-1.5 bg-ink/30"
+                  )}
+                />
+              ))}
+            </div>
           )}
         </div>
       </div>
@@ -197,6 +231,14 @@ export function ProductDetail({ product }: { product: Product }) {
           <div>
             <p className="text-ink text-xs uppercase tracking-[0.14em] mb-1.5">Bespoke</p>
             Every piece can be tailored to you.
+          </div>
+          <div>
+            <p className="text-ink text-xs uppercase tracking-[0.14em] mb-1.5">Signature packaging</p>
+            Presented in our box &amp; pouch, ready to gift.
+          </div>
+          <div>
+            <p className="text-ink text-xs uppercase tracking-[0.14em] mb-1.5">Insured delivery</p>
+            Discreet, fully insured worldwide.
           </div>
         </div>
       </div>

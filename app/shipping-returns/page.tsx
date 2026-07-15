@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ContentPage } from "@/components/content-page";
 
 export const metadata: Metadata = {
@@ -41,6 +42,23 @@ export default function ShippingReturnsPage() {
         <li>Refunds are processed within 5–7 working days of the piece being received and inspected.</li>
         <li>Bespoke, engraved and made-to-order pieces are non-returnable, as they are created uniquely for you.</li>
       </ul>
+
+      <h2>Signature Packaging</h2>
+      <div className="not-prose my-6 relative aspect-[16/10] overflow-hidden bg-ivory">
+        <Image
+          src="https://images.unsplash.com/photo-1600721391689-2564bb8055de?auto=format&fit=crop&w=1400&q=80"
+          alt="Etty Hekelman London signature packaging"
+          fill
+          sizes="(max-width: 768px) 100vw, 768px"
+          className="object-cover"
+        />
+      </div>
+      <p>
+        Every order is presented in our signature packaging — a hand-finished box, a soft
+        microfibre pouch and polishing cloth, wrapped in acid-free tissue and finished with our
+        seal. Complimentary gift wrapping is available on request; simply note it at checkout or
+        let your adviser know.
+      </p>
 
       <h2>Lifetime Warranty &amp; Aftercare</h2>
       <p>

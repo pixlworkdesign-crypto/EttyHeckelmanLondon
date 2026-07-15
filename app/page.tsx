@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getCollections, getProducts, getSiteSettings } from "@/lib/shopify";
 import { Hero } from "@/components/home/hero";
 import { CategoryTiles } from "@/components/home/category-tiles";
-import { StorySplit, BespokeBanner, ValueRow } from "@/components/home/editorial";
+import { StorySplit, BespokeBanner, ValueRow, SignaturePackaging } from "@/components/home/editorial";
 import { ProductGrid } from "@/components/product/product-grid";
 import { Reveal } from "@/components/ui/reveal";
 
@@ -48,6 +48,10 @@ export default async function HomePage() {
 
       <Reveal>
         <StorySplit />
+      </Reveal>
+
+      <Reveal>
+        <SignaturePackaging />
       </Reveal>
 
       <Reveal>
