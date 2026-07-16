@@ -15,7 +15,7 @@ export function Logo({ src }: { src?: string | null }) {
       <img
         src={url}
         alt="Etty Hekelman London"
-        className="h-36 md:h-44 w-auto object-contain mx-auto scale-[1.7] origin-center"
+        className="h-36 md:h-44 w-auto object-contain mx-auto scale-[2] origin-center"
       />
     );
   }
