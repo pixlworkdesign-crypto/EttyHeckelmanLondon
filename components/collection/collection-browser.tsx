@@ -85,7 +85,7 @@ export function CollectionBrowser({ products }: { products: Product[] }) {
   const chip = (active: boolean) =>
     cn(
       "px-4 py-2 text-[0.72rem] tracking-[0.06em] border transition-colors",
-      active ? "border-ink bg-ink text-porcelain" : "border-line text-ink hover:border-ink"
+      active ? "border-noir bg-noir text-porcelain" : "border-line text-ink hover:border-ink"
     );
 
   return (
@@ -99,7 +99,7 @@ export function CollectionBrowser({ products }: { products: Product[] }) {
         >
           Filter
           {activeCount > 0 && (
-            <span className="w-5 h-5 rounded-full bg-ink text-porcelain text-[0.6rem] flex items-center justify-center">
+            <span className="w-5 h-5 rounded-full bg-noir text-porcelain text-[0.6rem] flex items-center justify-center">
               {activeCount}
             </span>
           )}

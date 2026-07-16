@@ -10,8 +10,9 @@
   --color-porcelain: #fdfbf7;
   --color-champagne: #907a5b;
   --color-champagne-dark: #6d5940;
-  --color-ink: #231e17;
-  --color-ash: #857a6b;
+  --color-ink: #7d6650;
+  --color-noir: #231e17;
+  --color-ash: #8a7c6a;
   --color-stone: #e7dfd0;
   --color-line: #e9e2d5;
 
@@ -46,7 +47,7 @@
   }
 
   ::selection {
-    background-color: var(--color-ink);
+    background-color: var(--color-noir);
     color: var(--color-porcelain);
   }
 }
@@ -103,13 +104,13 @@
     border: 1px solid transparent;
   }
   .btn-primary {
-    background-color: var(--color-ink);
+    background-color: var(--color-noir);
     color: var(--color-porcelain);
   }
   .btn-primary:hover {
     background-color: transparent;
-    color: var(--color-ink);
-    border-color: var(--color-ink);
+    color: var(--color-noir);
+    border-color: var(--color-noir);
   }
   .btn-outline {
     background-color: transparent;

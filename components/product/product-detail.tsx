@@ -103,7 +103,7 @@ export function ProductDetail({ product }: { product: Product }) {
                   aria-label={`Go to image ${i + 1}`}
                   className={cn(
                     "h-1.5 rounded-full transition-all",
-                    i === activeImage ? "w-5 bg-ink" : "w-1.5 bg-ink/30"
+                    i === activeImage ? "w-5 bg-noir" : "w-1.5 bg-noir/30"
                   )}
                 />
               ))}
@@ -137,7 +137,7 @@ export function ProductDetail({ product }: { product: Product }) {
                 {formatPrice(activePrice)}
               </span>
               {onSale && (
-                <span className="text-[0.62rem] uppercase tracking-[0.18em] bg-ink text-porcelain px-2.5 py-1">
+                <span className="text-[0.62rem] uppercase tracking-[0.18em] bg-noir text-porcelain px-2.5 py-1">
                   Sale
                 </span>
               )}
@@ -169,7 +169,7 @@ export function ProductDetail({ product }: { product: Product }) {
                       className={cn(
                         "px-5 py-2.5 text-xs tracking-wide border transition-colors",
                         active
-                          ? "border-ink bg-ink text-porcelain"
+                          ? "border-noir bg-noir text-porcelain"
                           : "border-line text-ink hover:border-ink"
                       )}
                     >

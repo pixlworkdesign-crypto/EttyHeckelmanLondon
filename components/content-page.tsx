@@ -38,7 +38,7 @@ export function ContentPage({
           Still have a question? Our team is here to help.
         </p>
         <Link href="/contact" className="btn btn-outline mt-5">
-          Contact the House
+          Contact Us
         </Link>
       </div>
     </div>

@@ -37,7 +37,7 @@ export default async function CollectionsPage() {
                   className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105"
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-noir/50 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-8 text-porcelain">
                 <h2 className="font-display text-3xl md:text-4xl">{c.title}</h2>
                 {c.description && (

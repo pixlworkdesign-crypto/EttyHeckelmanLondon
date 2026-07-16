@@ -33,7 +33,7 @@ export function CookieConsent() {
 
   return (
     <div className="fixed bottom-0 inset-x-0 z-[60] p-4 md:p-6 animate-rise">
-      <div className="mx-auto max-w-3xl bg-ink text-porcelain shadow-2xl px-6 py-5 md:px-8 md:py-6 flex flex-col md:flex-row md:items-center gap-5">
+      <div className="mx-auto max-w-3xl bg-noir text-porcelain shadow-2xl px-6 py-5 md:px-8 md:py-6 flex flex-col md:flex-row md:items-center gap-5">
         <p className="text-sm font-light text-porcelain/85 leading-relaxed flex-1">
           We use cookies to give you the finest experience and to understand how our site is used.
           See our{" "}

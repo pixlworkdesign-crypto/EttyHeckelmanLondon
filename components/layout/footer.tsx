@@ -11,7 +11,7 @@ const COLUMNS = [
     ],
   },
   {
-    heading: "The House",
+    heading: "Discover",
     links: [
       { label: "Bespoke Commissions", href: "/bespoke" },
       { label: "Book an Appointment", href: "/appointments" },
@@ -31,12 +31,12 @@ const COLUMNS = [
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-porcelain mt-24">
+    <footer className="bg-noir text-porcelain mt-24">
       {/* Newsletter */}
       <div className="border-b border-white/10">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <p className="eyebrow text-champagne">The House of Etty Hekelman</p>
+            <p className="eyebrow text-champagne">Etty Hekelman London</p>
             <h2 className="font-display text-3xl md:text-4xl mt-3 leading-tight">
               Join our private client list
             </h2>

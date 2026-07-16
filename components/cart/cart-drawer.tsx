@@ -36,7 +36,7 @@ export function CartDrawer() {
       )}
       aria-hidden={!isOpen}
     >
-      <div className="absolute inset-0 bg-ink/40" onClick={closeCart} />
+      <div className="absolute inset-0 bg-noir/40" onClick={closeCart} />
 
       <aside
         className={cn(

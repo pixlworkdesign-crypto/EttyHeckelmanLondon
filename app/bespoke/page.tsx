@@ -27,7 +27,7 @@ export default function BespokePage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-ink/45" />
+        <div className="absolute inset-0 bg-noir/45" />
         <div className="relative h-full flex flex-col items-center justify-center text-center text-porcelain px-6">
           <p className="eyebrow text-porcelain/80">The Bespoke Service</p>
           <h1 className="font-display text-5xl md:text-7xl mt-4 max-w-3xl leading-tight">
@@ -59,7 +59,7 @@ export default function BespokePage() {
         </div>
       </section>
 
-      <section className="bg-ink text-porcelain">
+      <section className="bg-noir text-porcelain">
         <div className="mx-auto max-w-3xl px-6 py-20 md:py-28 text-center">
           <p className="eyebrow text-champagne">Begin</p>
           <h2 className="font-display text-4xl md:text-5xl mt-4">

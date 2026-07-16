@@ -39,7 +39,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
             </span>
           )}
           {onSale && (
-            <span className="bg-ink text-porcelain text-[0.58rem] uppercase tracking-[0.18em] px-3 py-1.5">
+            <span className="bg-noir text-porcelain text-[0.58rem] uppercase tracking-[0.18em] px-3 py-1.5">
               Sale
             </span>
           )}

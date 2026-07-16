@@ -13,7 +13,7 @@ export function Hero({ image }: { image?: string | null }) {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-ink/10 to-ink/5" />
+      <div className="absolute inset-0 bg-gradient-to-t from-noir/40 via-noir/10 to-noir/5" />
 
       <div className="relative h-full mx-auto max-w-[1400px] px-6 md:px-10 flex flex-col items-center justify-center text-center text-porcelain">
         <p className="eyebrow text-porcelain/75 animate-rise">The Winter Collection</p>

@@ -45,7 +45,7 @@ export function AppointmentForm() {
           {["In our London showroom", "Virtual appointment"].map((type, i) => (
             <label key={type} className="cursor-pointer">
               <input type="radio" name="type" value={type} defaultChecked={i === 0} className="peer sr-only" />
-              <span className="inline-block px-5 py-2.5 text-xs tracking-wide border border-line text-ink peer-checked:border-ink peer-checked:bg-ink peer-checked:text-porcelain transition-colors">
+              <span className="inline-block px-5 py-2.5 text-xs tracking-wide border border-line text-ink peer-checked:border-noir peer-checked:bg-noir peer-checked:text-porcelain transition-colors">
                 {type}
               </span>
             </label>

@@ -159,7 +159,7 @@ export function DatePicker({
                     "aspect-square flex items-center justify-center text-sm transition-colors",
                     disabled && "text-ash/30 cursor-not-allowed",
                     !disabled && !isSelected && "text-ink hover:bg-ivory",
-                    isSelected && "bg-ink text-porcelain",
+                    isSelected && "bg-noir text-porcelain",
                     !isSelected && isToday && "ring-1 ring-champagne"
                   )}
                 >

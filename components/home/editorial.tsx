@@ -89,7 +89,7 @@ export function BespokeBanner() {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-ink/45" />
+      <div className="absolute inset-0 bg-noir/45" />
       <div className="relative h-full flex flex-col items-center justify-center text-center text-porcelain px-6">
         <p className="eyebrow text-porcelain/80">A piece entirely your own</p>
         <h2 className="font-display text-4xl md:text-6xl mt-4 max-w-3xl leading-tight">

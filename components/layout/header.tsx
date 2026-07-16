@@ -117,7 +117,7 @@ export function Header({ logoUrl }: { logoUrl?: string | null }) {
   return (
     <>
       {/* Announcement bar */}
-      <div className="bg-ink text-porcelain/90 text-center text-[0.62rem] tracking-[0.28em] uppercase py-3 px-4 font-light">
+      <div className="bg-noir text-porcelain/90 text-center text-[0.62rem] tracking-[0.28em] uppercase py-3 px-4 font-light">
         Complimentary insured delivery &amp; lifetime aftercare · Book a private appointment
       </div>
 
@@ -194,7 +194,7 @@ export function Header({ logoUrl }: { logoUrl?: string | null }) {
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
-        <div className="absolute inset-0 bg-ink/40" onClick={closeMobile} />
+        <div className="absolute inset-0 bg-noir/40" onClick={closeMobile} />
         <div
           className={cn(
             "absolute left-0 top-0 h-full w-[86%] max-w-sm bg-porcelain shadow-2xl overflow-y-auto transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]",

@@ -21,7 +21,7 @@ export default function AppointmentsPage() {
           sizes="50vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-ink/25" />
+        <div className="absolute inset-0 bg-noir/25" />
         <div className="absolute bottom-0 left-0 p-12 text-porcelain">
           <p className="eyebrow text-porcelain/80">By Appointment</p>
           <h2 className="font-display text-4xl mt-2 max-w-sm leading-tight">
