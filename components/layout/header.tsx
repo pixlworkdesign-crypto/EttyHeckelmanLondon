@@ -125,8 +125,8 @@ export function Header({ logoUrl }: { logoUrl?: string | null }) {
         className={cn(
           "sticky top-0 z-40 transition-all duration-500 border-b",
           scrolled
-            ? "bg-porcelain/95 backdrop-blur-md border-line py-1"
-            : "bg-porcelain border-transparent py-2"
+            ? "bg-porcelain/95 backdrop-blur-md border-line py-4"
+            : "bg-porcelain border-transparent py-6"
         )}
       >
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
