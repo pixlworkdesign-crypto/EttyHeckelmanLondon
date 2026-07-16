@@ -2,26 +2,20 @@
 import { LOGO_URL } from "@/lib/site";
 
 /**
- * The house wordmark.
- *
- * By default we render the *typeset* wordmark — built from the Cormorant serif.
- * It is razor-sharp at any size, always the exact brand brown, and can never
- * show a background box, so it's the most reliable, high-end option.
- *
- * To use an uploaded image logo instead (from the Shopify site-settings `logo`
- * or NEXT_PUBLIC_LOGO_URL), set NEXT_PUBLIC_USE_IMAGE_LOGO=1. Ideally that image
- * has a transparent background and is cropped tight to the artwork.
+ * The house wordmark — your uploaded logo image (from the Shopify site-settings
+ * `logo`, or NEXT_PUBLIC_LOGO_URL). Change the height classes below to make the
+ * writing bigger or smaller. Falls back to the typeset wordmark only if no
+ * image is set.
  */
 export function Logo({ src }: { src?: string | null }) {
-  const useImage = process.env.NEXT_PUBLIC_USE_IMAGE_LOGO === "1";
-  const url = useImage ? src || LOGO_URL : "";
+  const url = src || LOGO_URL;
 
   if (url) {
     return (
       <img
         src={url}
         alt="Etty Hekelman London"
-        className="h-36 md:h-44 w-auto object-contain mx-auto"
+        className="h-40 md:h-52 w-auto object-contain mx-auto"
       />
     );
   }
