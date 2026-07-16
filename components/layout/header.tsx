@@ -56,14 +56,14 @@ const NAV: NavItem[] = [
 function DesktopNavItem({ item }: { item: NavItem }) {
   if (!item.children) {
     return (
-      <Link href={item.href} className="link-underline hover:text-champagne-dark transition-colors">
+      <Link href={item.href} className="link-underline text-ink hover:text-champagne-dark transition-colors">
         {item.label}
       </Link>
     );
   }
   return (
     <div className="relative group">
-      <Link href={item.href} className="link-underline group-hover:text-champagne-dark transition-colors">
+      <Link href={item.href} className="link-underline text-ink group-hover:text-champagne-dark transition-colors">
         {item.label}
       </Link>
       {/* Dropdown (pt-6 forms an invisible hover bridge to the panel) */}
