@@ -4,7 +4,7 @@ import { HERO_IMAGE } from "@/lib/site";
 
 export function Hero({ image }: { image?: string | null }) {
   return (
-    <section className="relative h-[92vh] min-h-[600px] w-full overflow-hidden">
+    <section className="relative h-[100svh] min-h-[720px] w-full overflow-hidden">
       <Image
         src={image || HERO_IMAGE}
         alt="Etty Hekelman London fine jewellery"
