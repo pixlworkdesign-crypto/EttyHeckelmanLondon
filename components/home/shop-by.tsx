@@ -75,7 +75,7 @@ export function ShopByCategory({ collections }: { collections: Collection[] }) {
         {CATEGORIES.map((c) => (
           <Tile
             key={c.handle}
-            href={`/collections/${c.handle}`}
+            href={`/shop/${c.handle}`}
             title={c.title}
             image={imageFor(c.handle)}
             ratio="aspect-[3/4]"
