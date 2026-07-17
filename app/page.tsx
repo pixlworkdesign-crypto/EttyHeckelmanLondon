@@ -1,16 +1,18 @@
 import Link from "next/link";
-import { getProducts, getSiteSettings } from "@/lib/shopify";
+import { getCollections, getProducts, getSiteSettings } from "@/lib/shopify";
 import { Hero } from "@/components/home/hero";
 import { StorySplit, BespokeBanner, ValueRow, SignaturePackaging } from "@/components/home/editorial";
+import { ShopByCategory, ShopByCollection } from "@/components/home/shop-by";
 import { ProductGrid } from "@/components/product/product-grid";
 import { Reveal } from "@/components/ui/reveal";
 
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const [products, settings] = await Promise.all([
+  const [products, settings, collections] = await Promise.all([
     getProducts({ first: 8 }),
     getSiteSettings(),
+    getCollections(),
   ]);
 
   const featured = products.slice(0, 4);
@@ -38,6 +40,14 @@ export default async function HomePage() {
           </Link>
         </div>
         <ProductGrid products={featured} />
+      </Reveal>
+
+      <Reveal>
+        <ShopByCategory collections={collections} />
+      </Reveal>
+
+      <Reveal>
+        <ShopByCollection collections={collections} />
       </Reveal>
 
       <Reveal>
