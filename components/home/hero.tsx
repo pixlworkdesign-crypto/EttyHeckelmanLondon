@@ -11,7 +11,7 @@ export function Hero({ image }: { image?: string | null }) {
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="object-cover object-top"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-noir/40 via-noir/10 to-noir/5" />
 
