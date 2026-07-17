@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getCollections, getProducts, getSiteSettings } from "@/lib/shopify";
 import { Hero } from "@/components/home/hero";
 import { StorySplit, BespokeBanner, ValueRow, SignaturePackaging } from "@/components/home/editorial";
-import { ShopByCategory, ShopByCollection } from "@/components/home/shop-by";
+import { ShopByCollection } from "@/components/home/shop-by";
 import { ProductGrid } from "@/components/product/product-grid";
 import { Reveal } from "@/components/ui/reveal";
 
@@ -40,10 +40,6 @@ export default async function HomePage() {
           </Link>
         </div>
         <ProductGrid products={featured} />
-      </Reveal>
-
-      <Reveal>
-        <ShopByCategory collections={collections} />
       </Reveal>
 
       <Reveal>
