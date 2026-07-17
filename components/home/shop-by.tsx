@@ -21,11 +21,13 @@ function Tile({
   title,
   image,
   ratio,
+  titleClass,
 }: {
   href: string;
   title: string;
   image: ImageRef;
   ratio: string;
+  titleClass: string;
 }) {
   const url = image?.url ?? null;
   return (
@@ -42,18 +44,12 @@ function Tile({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-noir/55 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-5 text-center text-porcelain">
-              <h3 className="font-display text-2xl md:text-3xl">{title}</h3>
-              <span className="eyebrow text-porcelain/80 inline-block mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                Discover &rarr;
-              </span>
+              <h3 className={`font-display ${titleClass}`}>{title}</h3>
             </div>
           </>
         ) : (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-ink">
-            <h3 className="font-display text-2xl md:text-3xl">{title}</h3>
-            <span className="eyebrow text-champagne opacity-0 group-hover:opacity-100 transition-opacity">
-              Discover &rarr;
-            </span>
+          <div className="absolute inset-0 flex items-center justify-center text-ink">
+            <h3 className={`font-display ${titleClass}`}>{title}</h3>
           </div>
         )}
       </div>
@@ -66,19 +62,17 @@ export function ShopByCategory({ collections }: { collections: Collection[] }) {
     collections.find((c) => c.handle === handle)?.image ?? null;
 
   return (
-    <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-20 md:py-28">
-      <div className="text-center mb-14">
-        <p className="eyebrow">Find Your Piece</p>
-        <h2 className="font-display text-4xl md:text-5xl mt-3">Shop by Category</h2>
-      </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+    <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-12 md:py-16">
+      <p className="eyebrow text-center mb-8">Shop by Category</p>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
         {CATEGORIES.map((c) => (
           <Tile
             key={c.handle}
             href={`/shop/${c.handle}`}
             title={c.title}
             image={imageFor(c.handle)}
-            ratio="aspect-[3/4]"
+            ratio="aspect-[4/5]"
+            titleClass="text-lg md:text-xl tracking-wide"
           />
         ))}
       </div>
@@ -89,7 +83,6 @@ export function ShopByCategory({ collections }: { collections: Collection[] }) {
 export function ShopByCollection({ collections }: { collections: Collection[] }) {
   // Themed collections only — exclude the four category collections.
   const themed = collections.filter((c) => !CATEGORY_HANDLES.has(c.handle));
-  if (themed.length === 0) return null;
 
   return (
     <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-20 md:py-28 border-t border-line">
@@ -97,17 +90,30 @@ export function ShopByCollection({ collections }: { collections: Collection[] })
         <p className="eyebrow">Curated Edits</p>
         <h2 className="font-display text-4xl md:text-5xl mt-3">Shop by Collection</h2>
       </div>
-      <div className="grid md:grid-cols-2 gap-6">
-        {themed.map((c) => (
-          <Tile
-            key={c.id}
-            href={`/collections/${c.handle}`}
-            title={c.title}
-            image={c.image}
-            ratio="aspect-[16/10]"
-          />
-        ))}
-      </div>
+      {themed.length > 0 ? (
+        <div className="grid md:grid-cols-2 gap-6">
+          {themed.map((c) => (
+            <Tile
+              key={c.id}
+              href={`/collections/${c.handle}`}
+              title={c.title}
+              image={c.image}
+              ratio="aspect-[16/10]"
+              titleClass="text-3xl md:text-4xl"
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="text-center max-w-md mx-auto">
+          <p className="text-ash font-light leading-relaxed">
+            Our curated collections are being prepared. Explore the full boutique in the
+            meantime.
+          </p>
+          <Link href="/collections" className="btn btn-outline mt-7">
+            Browse all
+          </Link>
+        </div>
+      )}
     </section>
   );
 }
