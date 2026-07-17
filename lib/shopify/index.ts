@@ -1,6 +1,5 @@
 import { getProductQuery, getProductsQuery, getCollectionsQuery, getCollectionProductsQuery, getCartQuery, getSiteSettingsQuery } from "./queries";
 import { createCartMutation, addToCartMutation, updateCartMutation, removeFromCartMutation } from "./mutations";
-import { MOCK_COLLECTIONS, MOCK_PRODUCTS, mockCollectionProducts } from "./mock-data";
 import type { Cart, Collection, Product, ProductVariant } from "./types";
 
 const domain = process.env.SHOPIFY_STORE_DOMAIN?.replace(/^https?:\/\//, "");
@@ -121,7 +120,7 @@ export async function getProducts(options?: {
   sortKey?: string;
   reverse?: boolean;
 }): Promise<Product[]> {
-  if (!isShopifyConfigured) return MOCK_PRODUCTS.slice(0, options?.first ?? MOCK_PRODUCTS.length);
+  if (!isShopifyConfigured) return [];
   const data = await shopifyFetch<{ products: Connection<RawProduct> }>({
     query: getProductsQuery,
     variables: {
@@ -136,7 +135,7 @@ export async function getProducts(options?: {
 }
 
 export async function getProduct(handle: string): Promise<Product | null> {
-  if (!isShopifyConfigured) return MOCK_PRODUCTS.find((p) => p.handle === handle) ?? null;
+  if (!isShopifyConfigured) return null;
   const data = await shopifyFetch<{ product: RawProduct | null }>({
     query: getProductQuery,
     variables: { handle },
@@ -146,7 +145,7 @@ export async function getProduct(handle: string): Promise<Product | null> {
 }
 
 export async function getCollections(): Promise<Collection[]> {
-  if (!isShopifyConfigured) return MOCK_COLLECTIONS;
+  if (!isShopifyConfigured) return [];
   const data = await shopifyFetch<{ collections: Connection<Collection> }>({
     query: getCollectionsQuery,
     variables: { first: 20 },
@@ -159,10 +158,7 @@ export async function getCollectionProducts(
   handle: string,
   options?: { sortKey?: string; reverse?: boolean }
 ): Promise<{ collection: Collection | null; products: Product[] }> {
-  if (!isShopifyConfigured) {
-    const collection = MOCK_COLLECTIONS.find((c) => c.handle === handle) ?? null;
-    return { collection, products: mockCollectionProducts(handle) };
-  }
+  if (!isShopifyConfigured) return { collection: null, products: [] };
   const data = await shopifyFetch<{
     collection: (Collection & { products: Connection<RawProduct> }) | null;
   }>({
