@@ -7,8 +7,14 @@ import { ProductGrid } from "@/components/product/product-grid";
 export const revalidate = 60;
 
 export async function generateStaticParams() {
-  const products = await getProducts({ first: 50 });
-  return products.map((p) => ({ handle: p.handle }));
+  // Don't let a transient Shopify error fail the whole build — if the API is
+  // unavailable, we simply pre-render nothing here and pages build on demand.
+  try {
+    const products = await getProducts({ first: 50 });
+    return products.map((p) => ({ handle: p.handle }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({

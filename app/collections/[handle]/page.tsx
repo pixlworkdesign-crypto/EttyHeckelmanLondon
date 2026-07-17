@@ -18,8 +18,14 @@ function slugify(s: string) {
 }
 
 export async function generateStaticParams() {
-  const collections = await getCollections();
-  return collections.map((c) => ({ handle: c.handle }));
+  // Don't let a transient Shopify error fail the whole build — if the API is
+  // unavailable, we simply pre-render nothing here and pages build on demand.
+  try {
+    const collections = await getCollections();
+    return collections.map((c) => ({ handle: c.handle }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({

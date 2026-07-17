@@ -46,22 +46,43 @@ async function shopifyFetch<T>({
     },
     body: JSON.stringify({ query, variables }),
   };
-  if (cache === "no-store") {
+  const isMutation = cache === "no-store";
+  if (isMutation) {
     init.cache = "no-store";
   } else {
     init.next = { revalidate, tags };
   }
-  const res = await fetch(endpoint, init);
 
-  if (!res.ok) {
-    throw new Error(`Shopify request failed: ${res.status} ${res.statusText}`);
+  // Read requests are safe to retry, so a transient Shopify hiccup (e.g. a 502
+  // during a build) doesn't take down the whole page/build. Mutations (cart)
+  // are never retried, to avoid duplicating an action.
+  const maxAttempts = isMutation ? 1 : 3;
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      const res = await fetch(endpoint, init);
+      if (!res.ok) {
+        // Retry on transient server errors; fail fast on 4xx (our bug).
+        if (res.status >= 500 && attempt < maxAttempts) {
+          await new Promise((r) => setTimeout(r, attempt * 400));
+          continue;
+        }
+        throw new Error(`Shopify request failed: ${res.status} ${res.statusText}`);
+      }
+      const body = (await res.json()) as GraphQLResponse<T>;
+      if (body.errors?.length) {
+        throw new Error(body.errors.map((e) => e.message).join("; "));
+      }
+      return body.data as T;
+    } catch (err) {
+      lastError = err;
+      if (attempt < maxAttempts) {
+        await new Promise((r) => setTimeout(r, attempt * 400));
+        continue;
+      }
+    }
   }
-
-  const body = (await res.json()) as GraphQLResponse<T>;
-  if (body.errors?.length) {
-    throw new Error(body.errors.map((e) => e.message).join("; "));
-  }
-  return body.data as T;
+  throw lastError;
 }
 
 // --- normalisation helpers -------------------------------------------------
