@@ -10,9 +10,15 @@ import { HERO_IMAGE } from "@/lib/site";
  * The hero image itself is the `hero_image` field on the same metaobject.
  */
 export function Hero({ image, layout }: { image?: string | null; layout?: string | null }) {
-  const src = image || HERO_IMAGE;
+  const src = image || HERO_IMAGE || null;
   const isFull = (layout ?? "").trim().toLowerCase().startsWith("full");
   return isFull ? <FullHero src={src} /> : <SplitHero src={src} />;
+}
+
+/** Quiet brand-cream stand-in shown only if no real hero image has loaded —
+ *  never a stock photo. */
+function HeroPlaceholder() {
+  return <div className="absolute inset-0 bg-gradient-to-br from-ivory via-stone/50 to-ivory" />;
 }
 
 const EYEBROW = "The Winter Collection";
@@ -24,18 +30,22 @@ const HEADLINE = (
 const BLURB =
   "Fine jewellery, handcrafted with care. Rare stones, set by hand, made to be treasured and passed on.";
 
-function SplitHero({ src }: { src: string }) {
+function SplitHero({ src }: { src: string | null }) {
   return (
     <section className="grid md:grid-cols-2 md:min-h-[86vh]">
       <div className="relative order-1 min-h-[54vh] md:min-h-0">
-        <Image
-          src={src}
-          alt="Etty Hekelman London fine jewellery"
-          fill
-          priority
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover object-top"
-        />
+        {src ? (
+          <Image
+            src={src}
+            alt="Etty Hekelman London fine jewellery"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover object-top"
+          />
+        ) : (
+          <HeroPlaceholder />
+        )}
       </div>
       <div className="order-2 bg-ivory flex flex-col justify-center gap-6 px-8 md:px-14 lg:px-20 py-16 md:py-0 text-center md:text-left">
         <p className="eyebrow text-champagne animate-rise">{EYEBROW}</p>
@@ -58,17 +68,21 @@ function SplitHero({ src }: { src: string }) {
   );
 }
 
-function FullHero({ src }: { src: string }) {
+function FullHero({ src }: { src: string | null }) {
   return (
     <section className="relative h-[86vh] min-h-[600px] w-full overflow-hidden">
-      <Image
-        src={src}
-        alt="Etty Hekelman London fine jewellery"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-top"
-      />
+      {src ? (
+        <Image
+          src={src}
+          alt="Etty Hekelman London fine jewellery"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-top"
+        />
+      ) : (
+        <HeroPlaceholder />
+      )}
       <div className="absolute inset-0 bg-gradient-to-t from-noir/45 via-noir/10 to-noir/5" />
 
       <div className="relative h-full mx-auto max-w-[1400px] px-6 md:px-10 flex flex-col items-center justify-center text-center text-porcelain">

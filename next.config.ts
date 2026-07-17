@@ -8,8 +8,6 @@ const nextConfig: NextConfig = {
       // Shopify product & CDN imagery
       { protocol: "https", hostname: "cdn.shopify.com" },
       { protocol: "https", hostname: "*.myshopify.com" },
-      // Demo imagery used before a store is connected
-      { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
   experimental: {

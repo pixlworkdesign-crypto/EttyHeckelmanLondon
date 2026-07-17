@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -18,16 +17,7 @@ const STEPS = [
 export default function BespokePage() {
   return (
     <>
-      <section className="relative h-[70vh] min-h-[460px] overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=2000&q=80"
-          alt="Bespoke jewellery design in progress"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-noir/45" />
+      <section className="relative h-[70vh] min-h-[460px] overflow-hidden bg-gradient-to-br from-noir via-champagne-dark to-noir">
         <div className="relative h-full flex flex-col items-center justify-center text-center text-porcelain px-6">
           <p className="eyebrow text-porcelain/80">The Bespoke Service</p>
           <h1 className="font-display text-5xl md:text-7xl mt-4 max-w-3xl leading-tight">

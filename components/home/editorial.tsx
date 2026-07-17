@@ -45,15 +45,7 @@ export function StorySplit() {
   return (
     <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 md:py-24">
       <div className="grid md:grid-cols-2 items-stretch">
-        <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[560px] order-1">
-          <Image
-            src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1400&q=80"
-            alt="A jeweller setting a stone by hand"
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
-          />
-        </div>
+        <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[560px] order-1 bg-gradient-to-br from-champagne/25 via-ivory to-stone" />
         <div className="order-2 bg-ivory flex items-center">
           <div className="px-8 md:px-16 py-14 md:py-0 max-w-xl">
             <p className="eyebrow">Our Craft</p>
@@ -81,15 +73,7 @@ export function StorySplit() {
 
 export function BespokeBanner() {
   return (
-    <section className="relative h-[70vh] min-h-[480px] overflow-hidden">
-      <Image
-        src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=2000&q=80"
-        alt="Bespoke jewellery design"
-        fill
-        sizes="100vw"
-        className="object-cover"
-      />
-      <div className="absolute inset-0 bg-noir/45" />
+    <section className="relative h-[70vh] min-h-[480px] overflow-hidden bg-gradient-to-br from-noir via-champagne-dark to-noir">
       <div className="relative h-full flex flex-col items-center justify-center text-center text-porcelain px-6">
         <p className="eyebrow text-porcelain/80">A piece entirely your own</p>
         <h2 className="font-display text-4xl md:text-6xl mt-4 max-w-3xl leading-tight">
