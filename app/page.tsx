@@ -17,7 +17,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <Hero image={settings.heroUrl} />
+      <Hero image={settings.heroUrl} layout={settings.heroLayout} />
       <ValueRow />
 
       {/* Featured pieces */}

@@ -237,6 +237,7 @@ export async function removeFromCart(cartId: string, lineIds: string[]): Promise
 export type SiteSettings = {
   logoUrl: string | null;
   heroUrl: string | null;
+  heroLayout: string | null;
   email: string | null;
   phone: string | null;
   whatsapp: string | null;
@@ -251,6 +252,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
   const empty: SiteSettings = {
     logoUrl: null,
     heroUrl: null,
+    heroLayout: null,
     email: null,
     phone: null,
     whatsapp: null,
@@ -263,6 +265,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
       metaobjects: Connection<{
         logo?: MetaImageField;
         hero?: MetaImageField;
+        layout?: MetaTextField;
         email?: MetaTextField;
         phone?: MetaTextField;
         whatsapp?: MetaTextField;
@@ -278,6 +281,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     return {
       logoUrl: node?.logo?.reference?.image?.url ?? null,
       heroUrl: node?.hero?.reference?.image?.url ?? null,
+      heroLayout: text(node?.layout),
       email: text(node?.email),
       phone: text(node?.phone),
       whatsapp: text(node?.whatsapp),

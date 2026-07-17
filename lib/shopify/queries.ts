@@ -104,6 +104,7 @@ export const getSiteSettingsQuery = /* GraphQL */ `
               }
             }
           }
+          layout: field(key: "hero_layout") { value }
           email: field(key: "contact_email") { value }
           phone: field(key: "contact_phone") { value }
           whatsapp: field(key: "whatsapp_number") { value }
