@@ -12,7 +12,8 @@ export type CheckoutResult =
  * UI can explain that a store must be connected to complete a purchase.
  */
 export async function createCheckout(
-  lines: { merchandiseId: string; quantity: number }[]
+  lines: { merchandiseId: string; quantity: number }[],
+  giftNote?: string
 ): Promise<CheckoutResult> {
   if (!isShopifyConfigured) {
     return {
@@ -24,7 +25,10 @@ export async function createCheckout(
   }
 
   try {
-    const cart = await createCart(lines);
+    const note = giftNote?.trim()
+      ? `Gift message: ${giftNote.trim()}`
+      : undefined;
+    const cart = await createCart(lines, note);
     if (!cart?.checkoutUrl) {
       return { ok: false, reason: "error", message: "Unable to create checkout." };
     }

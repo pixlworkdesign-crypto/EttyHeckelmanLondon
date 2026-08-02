@@ -13,12 +13,15 @@ export function CartDrawer() {
   const { items, isOpen, closeCart, updateQuantity, removeItem, subtotal, currencyCode, totalQuantity } = useCart();
   const [isPending, startTransition] = useTransition();
   const [notice, setNotice] = useState<string | null>(null);
+  const [giftOpen, setGiftOpen] = useState(false);
+  const [giftNote, setGiftNote] = useState("");
 
   const handleCheckout = () => {
     setNotice(null);
     startTransition(async () => {
       const result = await createCheckout(
-        items.map((i) => ({ merchandiseId: i.variantId, quantity: i.quantity }))
+        items.map((i) => ({ merchandiseId: i.variantId, quantity: i.quantity })),
+        giftNote
       );
       if (result.ok) {
         window.location.href = result.url;
@@ -128,6 +131,28 @@ export function CartDrawer() {
             </ul>
 
             <footer className="border-t border-line px-6 py-6 space-y-4">
+              {/* Gift message */}
+              <div>
+                <button
+                  type="button"
+                  onClick={() => setGiftOpen((v) => !v)}
+                  className="flex items-center gap-2 text-[0.72rem] uppercase tracking-[0.16em] text-ink hover:text-champagne-dark transition-colors"
+                  aria-expanded={giftOpen}
+                >
+                  <span className="inline-block w-[5px] h-[5px] rotate-45 bg-champagne" aria-hidden />
+                  {giftNote.trim() ? "Edit gift message" : "Add a gift message"}
+                </button>
+                {giftOpen && (
+                  <textarea
+                    value={giftNote}
+                    onChange={(e) => setGiftNote(e.target.value.slice(0, 300))}
+                    rows={3}
+                    placeholder="Write a message to be included with your gift…"
+                    className="mt-3 w-full border border-line bg-ivory px-4 py-3 text-sm font-light text-ink placeholder:text-ash/60 focus:outline-none focus:border-champagne resize-none"
+                  />
+                )}
+              </div>
+
               <div className="flex justify-between text-sm">
                 <span className="uppercase tracking-[0.14em] text-ash text-xs">Subtotal</span>
                 <span className="font-display text-xl">

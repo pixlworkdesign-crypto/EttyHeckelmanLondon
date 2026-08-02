@@ -186,11 +186,14 @@ export async function getCart(cartId: string): Promise<Cart | null> {
   return normaliseCart(data.cart);
 }
 
-export async function createCart(lines: { merchandiseId: string; quantity: number }[] = []): Promise<Cart | null> {
+export async function createCart(
+  lines: { merchandiseId: string; quantity: number }[] = [],
+  note?: string
+): Promise<Cart | null> {
   if (!isShopifyConfigured) return null;
   const data = await shopifyFetch<{ cartCreate: { cart: RawCart | null } }>({
     query: createCartMutation,
-    variables: { lines },
+    variables: { lines, note: note?.trim() || null },
     cache: "no-store",
   });
   return normaliseCart(data.cartCreate.cart);
