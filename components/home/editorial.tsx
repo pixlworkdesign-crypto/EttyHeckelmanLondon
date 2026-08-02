@@ -108,7 +108,7 @@ export function ValueRow() {
             {i > 0 && (
               <span
                 aria-hidden
-                className="hidden lg:block absolute left-0 top-1.5 -translate-x-1/2 w-[5px] h-[5px] rotate-45 bg-champagne"
+                className="hidden lg:block absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[5px] h-[5px] rotate-45 bg-champagne"
               />
             )}
             <h3 className="text-[0.68rem] font-medium uppercase tracking-[0.26em] text-ink">
