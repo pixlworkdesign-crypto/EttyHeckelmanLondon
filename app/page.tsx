@@ -24,19 +24,22 @@ export default async function HomePage() {
 
       {/* Featured pieces */}
       <Reveal as="section" className="mx-auto max-w-[1400px] px-5 md:px-10 py-14 md:py-28">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
-          <div>
-            <p className="eyebrow">Newly Arrived</p>
-            <h2 className="font-display text-4xl md:text-5xl mt-3">The Latest Pieces</h2>
-          </div>
+        <div className="text-center mb-12 md:mb-16">
+          <p className="eyebrow">Newly Arrived</p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-[3.4rem] mt-4 tracking-[0.01em]">
+            The Latest Pieces
+          </h2>
+          <span aria-hidden className="mt-6 inline-block w-[6px] h-[6px] rotate-45 bg-champagne" />
+        </div>
+        <ProductGrid products={featured} />
+        <div className="text-center mt-14">
           <Link
             href="/collections"
-            className="link-underline text-[0.72rem] uppercase tracking-[0.18em] text-ink self-start md:self-auto"
+            className="link-underline text-[0.72rem] uppercase tracking-[0.2em] text-ink"
           >
             View all
           </Link>
         </div>
-        <ProductGrid products={featured} />
       </Reveal>
 
       <Reveal>

@@ -59,7 +59,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
         <h3 className="font-display text-xl md:text-[1.4rem] leading-snug text-ink transition-colors duration-500 group-hover:text-champagne">
           {product.title}
         </h3>
-        <p className="text-[0.8rem] mt-2.5 tracking-[0.1em] text-ash">
+        <p className="text-[0.8rem] mt-2.5 tracking-[0.1em] text-ash tabular-nums">
           {onSale ? (
             <>
               <span className="line-through mr-2 opacity-60">{formatPrice(compareAt)}</span>

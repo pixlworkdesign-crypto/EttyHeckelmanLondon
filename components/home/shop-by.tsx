@@ -88,7 +88,10 @@ export function ShopByCollection({ collections }: { collections: Collection[] })
     <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-14 md:py-28 border-t border-line">
       <div className="text-center mb-14">
         <p className="eyebrow">Curated Edits</p>
-        <h2 className="font-display text-4xl md:text-5xl mt-3">Shop by Collection</h2>
+        <h2 className="font-display text-4xl md:text-5xl lg:text-[3.4rem] mt-4 tracking-[0.01em]">
+          Shop by Collection
+        </h2>
+        <span aria-hidden className="mt-6 inline-block w-[6px] h-[6px] rotate-45 bg-champagne" />
       </div>
       {themed.length > 0 ? (
         <div className="grid md:grid-cols-2 gap-6">

@@ -122,7 +122,7 @@ export function ProductDetail({ product }: { product: Product }) {
           const onSale =
             activeCompareAt && Number(activeCompareAt.amount) > Number(activePrice.amount);
           return (
-            <p className="mt-5 flex items-baseline gap-3">
+            <p className="mt-5 flex items-baseline gap-3 tabular-nums">
               {onSale && (
                 <span className="text-xl font-light text-ash/70 line-through">
                   {formatPrice(activeCompareAt)}
