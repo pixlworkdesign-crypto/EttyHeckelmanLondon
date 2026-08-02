@@ -23,14 +23,14 @@ export default async function HomePage() {
       <ValueRow />
 
       {/* Featured pieces */}
-      <Reveal as="section" className="mx-auto max-w-[1400px] px-5 md:px-10 py-14 md:py-28">
-        <div className="text-center mb-12 md:mb-16">
+      <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-14 md:py-28">
+        <Reveal className="text-center mb-12 md:mb-16">
           <p className="eyebrow">Newly Arrived</p>
           <h2 className="font-display text-4xl md:text-5xl lg:text-[3.4rem] mt-4 tracking-[0.01em]">
             The Latest Pieces
           </h2>
           <span aria-hidden className="mt-6 inline-block w-[6px] h-[6px] rotate-45 bg-champagne" />
-        </div>
+        </Reveal>
         <ProductGrid products={featured} />
         <div className="text-center mt-14">
           <Link
@@ -40,7 +40,7 @@ export default async function HomePage() {
             View all
           </Link>
         </div>
-      </Reveal>
+      </section>
 
       <Reveal>
         <ShopByCollection collections={collections} />

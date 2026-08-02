@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { HERO_IMAGE } from "@/lib/site";
+import { HeroImage } from "@/components/home/hero-image";
 
 /**
  * The homepage hero. Two layouts, chosen by the merchant from Shopify via the
@@ -34,16 +34,9 @@ function SplitHero({ src }: { src: string | null }) {
   return (
     <section className="relative md:grid md:grid-cols-2 md:min-h-[86vh]">
       {/* Image — full-bleed behind the copy on mobile, its own column on desktop */}
-      <div className="absolute inset-0 md:relative md:order-1">
+      <div className="absolute inset-0 md:relative md:order-1 overflow-hidden">
         {src ? (
-          <Image
-            src={src}
-            alt="Etty Hekelman London fine jewellery"
-            fill
-            priority
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover object-top"
-          />
+          <HeroImage src={src} alt="Etty Hekelman London fine jewellery" />
         ) : (
           <HeroPlaceholder />
         )}
@@ -83,14 +76,7 @@ function FullHero({ src }: { src: string | null }) {
   return (
     <section className="relative h-[86vh] min-h-[600px] w-full overflow-hidden">
       {src ? (
-        <Image
-          src={src}
-          alt="Etty Hekelman London fine jewellery"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-top"
-        />
+        <HeroImage src={src} alt="Etty Hekelman London fine jewellery" />
       ) : (
         <HeroPlaceholder />
       )}
