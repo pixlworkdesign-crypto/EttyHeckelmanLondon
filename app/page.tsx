@@ -34,7 +34,7 @@ export default async function HomePage() {
         <ProductGrid products={featured} />
         <div className="text-center mt-14">
           <Link
-            href="/collections"
+            href="/shop"
             className="link-underline text-[0.72rem] uppercase tracking-[0.2em] text-ink"
           >
             View all
