@@ -101,7 +101,7 @@ const VALUES = [
 export function ValueRow() {
   return (
     <section className="border-y border-line bg-porcelain">
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-line">
+      <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-2 lg:grid-cols-4">
         {VALUES.map(({ title, body }) => (
           <div key={title} className="px-6 md:px-8 py-10 md:py-14 text-center">
             <h3 className="eyebrow text-ink">{title}</h3>
