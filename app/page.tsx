@@ -23,7 +23,7 @@ export default async function HomePage() {
       <ValueRow />
 
       {/* Featured pieces */}
-      <Reveal as="section" className="mx-auto max-w-[1400px] px-5 md:px-10 py-20 md:py-28">
+      <Reveal as="section" className="mx-auto max-w-[1400px] px-5 md:px-10 py-14 md:py-28">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
           <div>
             <p className="eyebrow">Newly Arrived</p>

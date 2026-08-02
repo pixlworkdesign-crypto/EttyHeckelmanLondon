@@ -32,8 +32,9 @@ const BLURB =
 
 function SplitHero({ src }: { src: string | null }) {
   return (
-    <section className="grid md:grid-cols-2 md:min-h-[86vh]">
-      <div className="relative order-1 min-h-[54vh] md:min-h-0">
+    <section className="relative md:grid md:grid-cols-2 md:min-h-[86vh]">
+      {/* Image — full-bleed behind the copy on mobile, its own column on desktop */}
+      <div className="absolute inset-0 md:relative md:order-1">
         {src ? (
           <Image
             src={src}
@@ -46,20 +47,30 @@ function SplitHero({ src }: { src: string | null }) {
         ) : (
           <HeroPlaceholder />
         )}
+        {/* Mobile-only scrim so overlaid text stays legible */}
+        <div className="absolute inset-0 bg-gradient-to-t from-noir/65 via-noir/15 to-noir/5 md:hidden" />
       </div>
-      <div className="order-2 bg-ivory flex flex-col justify-center gap-6 px-8 md:px-14 lg:px-20 py-16 md:py-0 text-center md:text-left">
-        <p className="eyebrow text-champagne animate-rise">{EYEBROW}</p>
-        <h1 className="font-display font-light text-[2.6rem] md:text-6xl lg:text-[4.4rem] leading-[1.05] tracking-[0.01em] text-noir animate-rise">
+
+      {/* Copy — overlaid at the bottom on mobile, cream column on desktop */}
+      <div className="relative order-2 min-h-[80vh] md:min-h-0 flex flex-col justify-end md:justify-center gap-5 md:gap-6 px-8 md:px-14 lg:px-20 pb-16 md:py-0 text-center md:text-left md:bg-ivory">
+        <p className="eyebrow text-porcelain/80 md:text-champagne animate-rise">{EYEBROW}</p>
+        <h1 className="font-display font-light text-[2.7rem] md:text-6xl lg:text-[4.4rem] leading-[1.05] tracking-[0.01em] text-porcelain md:text-noir animate-rise">
           {HEADLINE}
         </h1>
-        <p className="max-w-md mx-auto md:mx-0 text-ash font-light md:text-lg leading-relaxed animate-rise">
+        <p className="max-w-md mx-auto md:mx-0 font-light md:text-lg leading-relaxed text-porcelain/90 md:text-ash animate-rise">
           {BLURB}
         </p>
-        <div className="mt-2 flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-rise">
-          <Link href="/collections/earrings" className="btn btn-primary">
+        <div className="mt-2 flex flex-col sm:flex-row gap-3.5 justify-center md:justify-start animate-rise">
+          <Link
+            href="/collections/earrings"
+            className="btn bg-porcelain text-ink hover:bg-champagne hover:text-porcelain md:bg-noir md:text-porcelain md:border md:border-noir md:hover:bg-transparent md:hover:text-noir"
+          >
             Shop Earrings
           </Link>
-          <Link href="/bespoke" className="btn btn-outline">
+          <Link
+            href="/bespoke"
+            className="btn border border-porcelain text-porcelain hover:bg-porcelain hover:text-ink md:border-noir md:text-noir md:hover:bg-noir md:hover:text-porcelain"
+          >
             Create Bespoke
           </Link>
         </div>

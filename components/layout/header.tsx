@@ -116,9 +116,10 @@ export function Header({ logoUrl }: { logoUrl?: string | null }) {
 
   return (
     <>
-      {/* Announcement bar */}
-      <div className="bg-noir text-porcelain/90 text-center text-[0.62rem] tracking-[0.28em] uppercase py-3 px-4 font-light">
-        Complimentary insured delivery &amp; lifetime aftercare · Book a private appointment
+      {/* Announcement bar — concise on mobile, full on larger screens */}
+      <div className="bg-noir text-porcelain/90 text-center text-[0.55rem] sm:text-[0.62rem] tracking-[0.2em] sm:tracking-[0.28em] uppercase py-3 px-4 font-light whitespace-nowrap overflow-hidden">
+        <span className="sm:hidden">Complimentary delivery &amp; lifetime aftercare</span>
+        <span className="hidden sm:inline">Complimentary insured delivery &amp; lifetime aftercare · Book a private appointment</span>
       </div>
 
       <header

@@ -85,7 +85,7 @@ export function ShopByCollection({ collections }: { collections: Collection[] })
   const themed = collections.filter((c) => !CATEGORY_HANDLES.has(c.handle));
 
   return (
-    <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-20 md:py-28 border-t border-line">
+    <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-14 md:py-28 border-t border-line">
       <div className="text-center mb-14">
         <p className="eyebrow">Curated Edits</p>
         <h2 className="font-display text-4xl md:text-5xl mt-3">Shop by Collection</h2>

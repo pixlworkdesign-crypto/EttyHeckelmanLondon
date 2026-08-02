@@ -1,10 +1,11 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PACKAGING_IMAGE } from "@/lib/site";
 
 export function SignaturePackaging() {
   return (
-    <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 md:py-24">
+    <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-12 md:py-24">
       <div className="grid md:grid-cols-2 items-stretch">
         <div className="order-2 md:order-1 bg-ivory flex items-center">
           <div className="px-8 md:px-16 py-14 md:py-0 max-w-xl">
@@ -43,7 +44,7 @@ export function SignaturePackaging() {
 
 export function StorySplit() {
   return (
-    <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 md:py-24">
+    <section className="mx-auto max-w-[1400px] px-5 md:px-10 py-12 md:py-24">
       <div className="grid md:grid-cols-2 items-stretch">
         <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[560px] order-1 bg-gradient-to-br from-champagne/25 via-ivory to-stone" />
         <div className="order-2 bg-ivory flex items-center">
@@ -101,23 +102,31 @@ const VALUES = [
 export function ValueRow() {
   return (
     <section className="border-y border-line bg-ivory">
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-14 md:py-16 grid grid-cols-2 lg:grid-cols-4 gap-y-12 lg:gap-y-0">
+      <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-12 md:py-16 flex flex-col lg:grid lg:grid-cols-4">
         {VALUES.map(({ title, body }, i) => (
-          <div key={title} className="relative px-6 md:px-10 text-center">
-            {/* delicate champagne diamond separator between pillars (desktop) */}
+          <Fragment key={title}>
+            {/* Mobile: a centred champagne diamond between stacked pillars */}
             {i > 0 && (
-              <span
-                aria-hidden
-                className="hidden lg:block absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[5px] h-[5px] rotate-45 bg-champagne"
-              />
+              <div className="lg:hidden flex justify-center py-6" aria-hidden>
+                <span className="w-[5px] h-[5px] rotate-45 bg-champagne" />
+              </div>
             )}
-            <h3 className="text-[0.68rem] font-medium uppercase tracking-[0.26em] text-ink">
-              {title}
-            </h3>
-            <p className="text-sm text-ash font-light mt-3.5 leading-relaxed max-w-[15rem] mx-auto">
-              {body}
-            </p>
-          </div>
+            <div className="relative px-6 md:px-10 text-center">
+              {/* Desktop: diamond separator on the left edge of each pillar */}
+              {i > 0 && (
+                <span
+                  aria-hidden
+                  className="hidden lg:block absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[5px] h-[5px] rotate-45 bg-champagne"
+                />
+              )}
+              <h3 className="text-[0.68rem] font-medium uppercase tracking-[0.26em] text-ink">
+                {title}
+              </h3>
+              <p className="text-sm text-ash font-light mt-3 leading-relaxed max-w-[15rem] mx-auto">
+                {body}
+              </p>
+            </div>
+          </Fragment>
         ))}
       </div>
     </section>
