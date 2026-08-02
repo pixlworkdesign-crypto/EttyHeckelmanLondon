@@ -100,11 +100,20 @@ const VALUES = [
 
 export function ValueRow() {
   return (
-    <section className="border-y border-line bg-porcelain">
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-2 lg:grid-cols-4">
-        {VALUES.map(({ title, body }) => (
-          <div key={title} className="px-6 md:px-8 py-10 md:py-14 text-center">
-            <h3 className="eyebrow text-ink">{title}</h3>
+    <section className="border-y border-line bg-ivory">
+      <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-14 md:py-16 grid grid-cols-2 lg:grid-cols-4 gap-y-12 lg:gap-y-0">
+        {VALUES.map(({ title, body }, i) => (
+          <div key={title} className="relative px-6 md:px-10 text-center">
+            {/* delicate champagne diamond separator between pillars (desktop) */}
+            {i > 0 && (
+              <span
+                aria-hidden
+                className="hidden lg:block absolute left-0 top-1.5 -translate-x-1/2 w-[5px] h-[5px] rotate-45 bg-champagne"
+              />
+            )}
+            <h3 className="text-[0.68rem] font-medium uppercase tracking-[0.26em] text-ink">
+              {title}
+            </h3>
             <p className="text-sm text-ash font-light mt-3.5 leading-relaxed max-w-[15rem] mx-auto">
               {body}
             </p>
