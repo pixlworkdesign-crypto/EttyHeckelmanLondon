@@ -4,8 +4,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCart } from "@/components/cart/cart-context";
 import { useWishlist } from "@/components/wishlist/wishlist-context";
-import { BagIcon, MenuIcon, CloseIcon, SearchIcon, HeartIcon } from "@/components/ui/icons";
+import { BagIcon, MenuIcon, CloseIcon, HeartIcon } from "@/components/ui/icons";
 import { Logo } from "@/components/ui/logo";
+import { HeaderSearch } from "@/components/layout/header-search";
 import { cn } from "@/lib/utils";
 
 type NavChild = { label: string; href: string };
@@ -157,9 +158,7 @@ export function Header({ logoUrl }: { logoUrl?: string | null }) {
                 <DesktopNavItem key={item.label} item={item} />
               ))}
             </nav>
-            <Link href="/search" aria-label="Search" className="hidden sm:block hover:text-champagne-dark transition-colors">
-              <SearchIcon className="w-5 h-5" />
-            </Link>
+            <HeaderSearch />
             <Link
               href="/wishlist"
               aria-label={`Wishlist, ${wishlistCount} items`}
