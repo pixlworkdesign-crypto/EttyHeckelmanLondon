@@ -24,10 +24,10 @@ export default async function CollectionsPage() {
         </p>
       </header>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {collections.map((c) => (
           <Link key={c.id} href={`/collections/${c.handle}`} className="group relative block">
-            <div className="relative aspect-[16/10] overflow-hidden bg-ivory">
+            <div className="relative aspect-[4/5] overflow-hidden bg-ivory">
               {c.image && (
                 <Image
                   src={c.image.url}

@@ -101,33 +101,42 @@ const VALUES = [
 
 export function ValueRow() {
   return (
-    <section className="border-y border-line bg-ivory">
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-12 md:py-16 flex flex-col lg:grid lg:grid-cols-4">
-        {VALUES.map(({ title, body }, i) => (
-          <Fragment key={title}>
-            {/* Mobile: a centred champagne diamond between stacked pillars */}
-            {i > 0 && (
-              <div className="lg:hidden flex justify-center py-6" aria-hidden>
-                <span className="w-[5px] h-[5px] rotate-45 bg-champagne" />
-              </div>
-            )}
-            <div className="relative px-6 md:px-10 text-center">
-              {/* Desktop: diamond separator on the left edge of each pillar */}
+    <section className="border-y border-line bg-gradient-to-b from-[#f7f2e8] to-[#efe7d7]">
+      <div className="mx-auto max-w-[1240px] px-5 md:px-10 py-14 md:py-16">
+        {/* Centred diamond motif */}
+        <div className="flex items-center justify-center gap-4 mb-11 md:mb-12" aria-hidden>
+          <span className="h-px w-10 bg-champagne/45" />
+          <span className="w-[6px] h-[6px] rotate-45 bg-champagne" />
+          <span className="h-px w-10 bg-champagne/45" />
+        </div>
+
+        <div className="flex flex-col lg:grid lg:grid-cols-4">
+          {VALUES.map(({ title, body }, i) => (
+            <Fragment key={title}>
+              {/* Mobile: a centred champagne diamond between stacked pillars */}
               {i > 0 && (
-                <span
-                  aria-hidden
-                  className="hidden lg:block absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[5px] h-[5px] rotate-45 bg-champagne"
-                />
+                <div className="lg:hidden flex justify-center py-7" aria-hidden>
+                  <span className="w-[5px] h-[5px] rotate-45 bg-champagne" />
+                </div>
               )}
-              <h3 className="text-[0.68rem] font-medium uppercase tracking-[0.26em] text-ink">
-                {title}
-              </h3>
-              <p className="text-sm text-ash font-light mt-3 leading-relaxed max-w-[15rem] mx-auto">
-                {body}
-              </p>
-            </div>
-          </Fragment>
-        ))}
+              <div className="relative px-6 md:px-9 text-center">
+                {/* Desktop: diamond separator on the left edge of each pillar */}
+                {i > 0 && (
+                  <span
+                    aria-hidden
+                    className="hidden lg:block absolute left-0 top-3.5 -translate-x-1/2 w-[5px] h-[5px] rotate-45 bg-champagne"
+                  />
+                )}
+                <h3 className="font-display font-light text-2xl md:text-[1.6rem] leading-tight tracking-[0.01em] text-noir">
+                  {title}
+                </h3>
+                <p className="text-sm text-ash font-light mt-3 leading-relaxed max-w-[15rem] mx-auto">
+                  {body}
+                </p>
+              </div>
+            </Fragment>
+          ))}
+        </div>
       </div>
     </section>
   );

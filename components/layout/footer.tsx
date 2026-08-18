@@ -32,15 +32,15 @@ const COLUMNS = [
 export function Footer() {
   return (
     <footer className="bg-noir text-porcelain mt-24">
-      {/* Newsletter */}
-      <div className="border-b border-white/10">
+      {/* Newsletter — light ivory band */}
+      <div className="bg-ivory text-ink border-b border-line">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-16 grid md:grid-cols-2 gap-10 items-center">
           <div>
             <p className="eyebrow text-champagne">Etty Hekelman London</p>
-            <h2 className="font-display text-3xl md:text-4xl mt-3 leading-tight">
+            <h2 className="font-display text-3xl md:text-4xl mt-3 leading-tight text-noir">
               Join our private client list
             </h2>
-            <p className="text-porcelain/60 mt-3 max-w-md text-sm font-light">
+            <p className="text-ash mt-3 max-w-md text-sm font-light">
               Early access to new collections, private viewings and the stories behind our
               pieces — delivered with discretion.
             </p>
@@ -52,10 +52,10 @@ export function Footer() {
                 type="email"
                 required
                 placeholder="Email address"
-                className="w-full bg-transparent border-b border-white/25 py-3 text-sm placeholder:text-porcelain/40 focus:outline-none focus:border-champagne transition-colors"
+                className="w-full bg-transparent border-b border-line py-3 text-sm text-ink placeholder:text-ash/60 focus:outline-none focus:border-champagne transition-colors"
               />
             </label>
-            <button type="submit" className="btn btn-outline border-white/40 text-porcelain hover:bg-porcelain hover:text-ink">
+            <button type="submit" className="btn btn-outline">
               Subscribe
             </button>
           </form>
