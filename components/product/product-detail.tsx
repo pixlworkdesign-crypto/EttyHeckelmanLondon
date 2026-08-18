@@ -6,7 +6,7 @@ import Link from "next/link";
 import type { Product } from "@/lib/shopify/types";
 import { useCart } from "@/components/cart/cart-context";
 import { WishlistButton } from "@/components/wishlist/wishlist-button";
-import { formatPrice, cn } from "@/lib/utils";
+import { formatPrice, cn, imageFraming } from "@/lib/utils";
 import { ArrowRightIcon } from "@/components/ui/icons";
 
 export function ProductDetail({ product }: { product: Product }) {
@@ -29,6 +29,7 @@ export function ProductDetail({ product }: { product: Product }) {
   }, [product.variants, selections]);
 
   const images = product.images.length ? product.images : product.featuredImage ? [product.featuredImage] : [];
+  const framing = imageFraming(product.tags);
 
   // No price set (£0) → present as "Price on request" with an enquiry, rather
   // than showing £0.
@@ -78,7 +79,7 @@ export function ProductDetail({ product }: { product: Product }) {
                 )}
                 aria-label={`View image ${i + 1}`}
               >
-                <Image src={img.url} alt="" fill sizes="80px" className="object-cover" />
+                <Image src={img.url} alt="" fill sizes="80px" className={framing} />
               </button>
             ))}
           </div>
@@ -95,7 +96,7 @@ export function ProductDetail({ product }: { product: Product }) {
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
+              className={framing}
               draggable={false}
             />
           )}

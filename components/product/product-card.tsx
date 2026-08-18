@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/lib/shopify/types";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, cn, imageFraming } from "@/lib/utils";
 import { WishlistButton } from "@/components/wishlist/wishlist-button";
 
 export function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
@@ -10,6 +10,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
   const onSale = compareAt && Number(compareAt.amount) > Number(price.amount);
   const priceOnRequest = Number(price.amount) <= 0;
   const hover = product.images[1] ?? product.featuredImage;
+  const framing = imageFraming(product.tags);
 
   return (
     <Link href={`/products/${product.handle}`} className="group block">
@@ -21,7 +22,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
             priority={priority}
-            className="object-cover transition-all duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:opacity-0 group-hover:scale-[1.04]"
+            className={cn(framing, "transition-all duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:opacity-0 group-hover:scale-[1.04]")}
           />
         )}
         {hover && (
@@ -30,7 +31,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
             alt={product.title}
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-            className="object-cover scale-105 opacity-0 transition-all duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:opacity-100 group-hover:scale-100"
+            className={cn(framing, "scale-105 opacity-0 transition-all duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:opacity-100 group-hover:scale-100")}
           />
         )}
         <div className="absolute top-4 left-4 z-10 flex flex-col items-start gap-2">
