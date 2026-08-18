@@ -73,7 +73,7 @@ export function ProductDetail({ product }: { product: Product }) {
                 key={img.url + i}
                 onClick={() => setActiveImage(i)}
                 className={cn(
-                  "relative aspect-[4/5] w-16 md:w-full overflow-hidden bg-ivory border transition-colors",
+                  "relative aspect-square w-16 md:w-full overflow-hidden bg-ivory border transition-colors",
                   i === activeImage ? "border-champagne" : "border-transparent hover:border-line"
                 )}
                 aria-label={`View image ${i + 1}`}
@@ -84,7 +84,7 @@ export function ProductDetail({ product }: { product: Product }) {
           </div>
         )}
         <div
-          className="relative flex-1 aspect-[4/5] overflow-hidden bg-ivory touch-pan-y select-none"
+          className="relative flex-1 aspect-square overflow-hidden bg-ivory touch-pan-y select-none"
           onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
           onTouchEnd={onTouchEnd}
         >
