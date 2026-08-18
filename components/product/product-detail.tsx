@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import type { Product } from "@/lib/shopify/types";
 import { useCart } from "@/components/cart/cart-context";
 import { WishlistButton } from "@/components/wishlist/wishlist-button";
@@ -28,6 +29,11 @@ export function ProductDetail({ product }: { product: Product }) {
   }, [product.variants, selections]);
 
   const images = product.images.length ? product.images : product.featuredImage ? [product.featuredImage] : [];
+
+  // No price set (£0) → present as "Price on request" with an enquiry, rather
+  // than showing £0.
+  const priceOnRequest =
+    Number((selectedVariant?.price ?? product.priceRange.minVariantPrice).amount) <= 0;
 
   const goToImage = (i: number) => {
     if (images.length === 0) return;
@@ -67,18 +73,18 @@ export function ProductDetail({ product }: { product: Product }) {
                 key={img.url + i}
                 onClick={() => setActiveImage(i)}
                 className={cn(
-                  "relative aspect-[4/5] w-16 md:w-full overflow-hidden bg-ivory border transition-colors",
-                  i === activeImage ? "border-champagne" : "border-transparent hover:border-line"
+                  "relative aspect-square w-16 md:w-full overflow-hidden bg-white border transition-colors",
+                  i === activeImage ? "border-champagne" : "border-line hover:border-champagne/60"
                 )}
                 aria-label={`View image ${i + 1}`}
               >
-                <Image src={img.url} alt="" fill sizes="80px" className="object-cover" />
+                <Image src={img.url} alt="" fill sizes="80px" className="object-contain" />
               </button>
             ))}
           </div>
         )}
         <div
-          className="relative flex-1 aspect-[4/5] overflow-hidden bg-ivory touch-pan-y select-none"
+          className="relative flex-1 aspect-square overflow-hidden bg-white border border-line touch-pan-y select-none"
           onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
           onTouchEnd={onTouchEnd}
         >
@@ -89,7 +95,7 @@ export function ProductDetail({ product }: { product: Product }) {
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
+              className="object-contain"
               draggable={false}
             />
           )}
@@ -121,6 +127,9 @@ export function ProductDetail({ product }: { product: Product }) {
           const activeCompareAt = selectedVariant?.compareAtPrice;
           const onSale =
             activeCompareAt && Number(activeCompareAt.amount) > Number(activePrice.amount);
+          if (priceOnRequest) {
+            return <p className="mt-5 text-2xl font-light text-ink/90">Price on request</p>;
+          }
           return (
             <p className="mt-5 flex items-baseline gap-3 tabular-nums">
               {onSale && (
@@ -184,18 +193,25 @@ export function ProductDetail({ product }: { product: Product }) {
         {/* Add to cart */}
         <div className="mt-10 flex flex-col gap-4">
           <div className="flex flex-col sm:flex-row gap-3">
-            <button
-              onClick={handleAdd}
-              disabled={!selectedVariant?.availableForSale}
-              className="btn btn-primary flex-1 sm:min-w-[15rem]"
-            >
-              {!selectedVariant?.availableForSale
-                ? "Sold Out"
-                : added
-                  ? "Added to Bag ✓"
-                  : "Add to Bag"}
-              {selectedVariant?.availableForSale && !added && <ArrowRightIcon className="w-4 h-4" />}
-            </button>
+            {priceOnRequest ? (
+              <Link href="/contact" className="btn btn-primary flex-1 sm:min-w-[15rem]">
+                Enquire
+                <ArrowRightIcon className="w-4 h-4" />
+              </Link>
+            ) : (
+              <button
+                onClick={handleAdd}
+                disabled={!selectedVariant?.availableForSale}
+                className="btn btn-primary flex-1 sm:min-w-[15rem]"
+              >
+                {!selectedVariant?.availableForSale
+                  ? "Sold Out"
+                  : added
+                    ? "Added to Bag ✓"
+                    : "Add to Bag"}
+                {selectedVariant?.availableForSale && !added && <ArrowRightIcon className="w-4 h-4" />}
+              </button>
+            )}
             <WishlistButton
               variant="inline"
               className="border border-ink w-full sm:w-[3.4rem] h-[3.4rem] hover:bg-ivory shrink-0"

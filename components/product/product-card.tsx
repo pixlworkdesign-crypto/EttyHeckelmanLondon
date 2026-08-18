@@ -8,6 +8,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
   const price = product.priceRange.minVariantPrice;
   const compareAt = product.compareAtPriceRange?.minVariantPrice;
   const onSale = compareAt && Number(compareAt.amount) > Number(price.amount);
+  const priceOnRequest = Number(price.amount) <= 0;
   const hover = product.images[1] ?? product.featuredImage;
 
   return (
@@ -60,7 +61,9 @@ export function ProductCard({ product, priority = false }: { product: Product; p
           {product.title}
         </h3>
         <p className="text-[0.8rem] mt-2.5 tracking-[0.1em] text-ash tabular-nums">
-          {onSale ? (
+          {priceOnRequest ? (
+            <span>Price on request</span>
+          ) : onSale ? (
             <>
               <span className="line-through mr-2 opacity-60">{formatPrice(compareAt)}</span>
               <span className="text-champagne-dark">{formatPrice(price)}</span>
