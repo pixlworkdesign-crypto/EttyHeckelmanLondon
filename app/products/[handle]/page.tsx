@@ -64,10 +64,10 @@ export default async function ProductPage({
   };
 
   return (
-    <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-10 md:py-16">
+    <div className="mx-auto max-w-[1400px] px-5 md:px-10 pt-4 md:pt-6 pb-10 md:pb-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <nav className="text-[0.7rem] uppercase tracking-[0.16em] text-ash mb-10">
+      <nav className="text-[0.7rem] uppercase tracking-[0.16em] text-ash mb-5 md:mb-6">
         <a href="/" className="hover:text-ink transition-colors">Home</a>
         <span className="mx-2">/</span>
         <a href="/collections" className="hover:text-ink transition-colors">Collections</a>
