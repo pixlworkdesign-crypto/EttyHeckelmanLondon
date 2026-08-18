@@ -6,7 +6,7 @@ import Link from "next/link";
 import type { Product } from "@/lib/shopify/types";
 import { useCart } from "@/components/cart/cart-context";
 import { WishlistButton } from "@/components/wishlist/wishlist-button";
-import { formatPrice, cn, imageFraming } from "@/lib/utils";
+import { formatPrice, cn } from "@/lib/utils";
 import { ArrowRightIcon } from "@/components/ui/icons";
 
 export function ProductDetail({ product }: { product: Product }) {
@@ -29,7 +29,6 @@ export function ProductDetail({ product }: { product: Product }) {
   }, [product.variants, selections]);
 
   const images = product.images.length ? product.images : product.featuredImage ? [product.featuredImage] : [];
-  const framing = imageFraming(product.tags);
 
   // No price set (£0) → present as "Price on request" with an enquiry, rather
   // than showing £0.
@@ -79,13 +78,13 @@ export function ProductDetail({ product }: { product: Product }) {
                 )}
                 aria-label={`View image ${i + 1}`}
               >
-                <Image src={img.url} alt="" fill sizes="80px" className={framing} />
+                <Image src={img.url} alt="" fill sizes="80px" className="object-contain" />
               </button>
             ))}
           </div>
         )}
         <div
-          className="relative flex-1 aspect-square overflow-hidden bg-ivory touch-pan-y select-none"
+          className="relative flex-1 min-w-0 flex items-center justify-center bg-ivory touch-pan-y select-none overflow-hidden"
           onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
           onTouchEnd={onTouchEnd}
         >
@@ -93,10 +92,11 @@ export function ProductDetail({ product }: { product: Product }) {
             <Image
               src={images[activeImage].url}
               alt={images[activeImage].altText ?? product.title}
-              fill
+              width={images[activeImage].width ?? 1000}
+              height={images[activeImage].height ?? 1000}
               priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className={framing}
+              sizes="(max-width: 1024px) 100vw, 560px"
+              className="w-auto h-auto max-w-full max-h-[72vh] object-contain"
               draggable={false}
             />
           )}
