@@ -63,9 +63,9 @@ export function ProductDetail({ product }: { product: Product }) {
   };
 
   return (
-    <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+    <div className="grid lg:grid-cols-[minmax(0,420px)_1fr] gap-10 lg:gap-16 items-start">
       {/* Gallery */}
-      <div className="flex flex-col-reverse md:flex-row gap-4">
+      <div className="flex flex-col-reverse md:flex-row gap-4 w-full max-w-[420px] mx-auto lg:mx-0">
         {images.length > 1 && (
           <div className="flex md:flex-col gap-3 md:w-20 shrink-0">
             {images.map((img, i) => (
