@@ -84,7 +84,7 @@ export function ProductDetail({ product }: { product: Product }) {
           </div>
         )}
         <div
-          className="relative flex-1 min-w-0 flex items-center justify-center bg-ivory touch-pan-y select-none overflow-hidden"
+          className="relative flex-1 min-w-0 aspect-square overflow-hidden bg-ivory touch-pan-y select-none"
           onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
           onTouchEnd={onTouchEnd}
         >
@@ -92,11 +92,10 @@ export function ProductDetail({ product }: { product: Product }) {
             <Image
               src={images[activeImage].url}
               alt={images[activeImage].altText ?? product.title}
-              width={images[activeImage].width ?? 1000}
-              height={images[activeImage].height ?? 1000}
+              fill
               priority
               sizes="(max-width: 1024px) 100vw, 560px"
-              className="w-auto h-auto max-w-full max-h-[72vh] object-contain"
+              className="object-contain"
               draggable={false}
             />
           )}
