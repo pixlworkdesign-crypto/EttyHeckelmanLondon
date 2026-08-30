@@ -125,10 +125,12 @@ export function Header({ logoUrl }: { logoUrl?: string | null }) {
 
       <header
         className={cn(
-          "sticky top-0 z-40 transition-all duration-500 border-b",
+          // A persistent fine rule + soft shadow lifts the header off the page,
+          // so it stays distinct from the content without changing its colour.
+          "sticky top-0 z-40 transition-all duration-500 border-b border-line shadow-[0_6px_20px_-12px_rgba(35,30,23,0.28)]",
           scrolled
-            ? "bg-porcelain/95 backdrop-blur-md border-line py-2"
-            : "bg-porcelain border-transparent py-2.5"
+            ? "bg-porcelain/95 backdrop-blur-md py-2"
+            : "bg-porcelain py-2.5"
         )}
       >
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
