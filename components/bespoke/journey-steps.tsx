@@ -26,6 +26,12 @@ const DRAW = 0.5;
 const COPY_IN = 0.55;
 /** Pixels the copy travels on the way in. */
 const ENTRY = 14;
+/** A visitor who arrives already looking at the section gets a timed reveal
+ *  rather than a scrubbed one — there is no scroll left to drive it. */
+const ALREADY_IN_VIEW = 0.7;
+const TIMED_MS = 900;
+const TIMED_STAGGER = 140;
+const EASE = "cubic-bezier(0.19, 1, 0.22, 1)";
 
 const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
@@ -48,24 +54,69 @@ export function JourneySteps({ steps }: { steps: readonly JourneyStep[] }) {
 
     const latched = steps.map(() => 0);
 
-    const paint = () => {
+    const setStep = (i: number, local: number) => {
+      const rail = railRefs.current[i];
+      if (rail) rail.style.transform = `scaleY(${local.toFixed(3)})`;
+
+      const copy = copyRefs.current[i];
+      if (copy) {
+        copy.style.opacity = clamp(local / COPY_IN).toFixed(3);
+        copy.style.transform = `translateX(${(-ENTRY + local * ENTRY).toFixed(2)}px)`;
+      }
+    };
+
+    const progress = () => {
       const box = grid.getBoundingClientRect();
       const vh = window.innerHeight || document.documentElement.clientHeight;
-      const p = clamp(((1 - START) * vh - box.top) / (vh * TRAVEL));
+      return {
+        p: clamp(((1 - START) * vh - box.top) / (vh * TRAVEL)),
+        inView: box.top < vh * ALREADY_IN_VIEW,
+      };
+    };
 
+    // Reloading restores the scroll position, and a shared link can point
+    // straight here — either way the section is already on screen and there is
+    // no scroll left to scrub. Play the reveal on a timer so it still happens.
+    if (progress().inView) {
+      steps.forEach((_, i) => {
+        const rail = railRefs.current[i];
+        const copy = copyRefs.current[i];
+        if (rail) rail.style.transition = "none";
+        if (copy) copy.style.transition = "none";
+        setStep(i, 0);
+      });
+
+      const play = requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+          steps.forEach((_, i) => {
+            const delay = i * TIMED_STAGGER;
+            const rail = railRefs.current[i];
+            const copy = copyRefs.current[i];
+            if (rail) {
+              rail.style.transition = `transform ${TIMED_MS}ms ${EASE} ${delay}ms`;
+              rail.style.transform = "scaleY(1)";
+            }
+            if (copy) {
+              copy.style.transition =
+                `opacity ${Math.round(TIMED_MS * 0.6)}ms ${EASE} ${delay}ms, ` +
+                `transform ${TIMED_MS}ms ${EASE} ${delay}ms`;
+              copy.style.opacity = "1";
+              copy.style.transform = "translateX(0px)";
+            }
+          });
+        })
+      );
+
+      return () => cancelAnimationFrame(play);
+    }
+
+    const paint = () => {
+      const { p } = progress();
       for (let i = 0; i < latched.length; i++) {
         const live = clamp((p - i * STAGGER) / DRAW);
         const local = live > latched[i] ? live : latched[i];
         latched[i] = local;
-
-        const rail = railRefs.current[i];
-        if (rail) rail.style.transform = `scaleY(${local.toFixed(3)})`;
-
-        const copy = copyRefs.current[i];
-        if (copy) {
-          copy.style.opacity = clamp(local / COPY_IN).toFixed(3);
-          copy.style.transform = `translateX(${(-ENTRY + local * ENTRY).toFixed(2)}px)`;
-        }
+        setStep(i, local);
       }
     };
 
