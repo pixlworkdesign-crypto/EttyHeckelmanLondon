@@ -40,10 +40,21 @@ export default function BespokePage() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {STEPS.map((s) => (
-            <div key={s.n} className="border-t border-line pt-6">
-              <p className="font-display text-5xl text-champagne">{s.n}</p>
-              <h3 className="font-display text-2xl mt-4">{s.t}</h3>
-              <p className="text-ash font-light leading-relaxed mt-3 text-sm">{s.d}</p>
+            <div
+              key={s.n}
+              className="group relative pt-6 transition-transform duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] hover:-translate-y-2 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+            >
+              <span className="absolute left-0 top-0 h-px w-full bg-line" aria-hidden />
+              <span className="absolute left-0 top-0 h-px w-full origin-left scale-x-0 bg-champagne transition-transform duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-x-100 motion-reduce:transition-none" aria-hidden />
+              <p className="font-display text-5xl text-champagne transition-all duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-1 group-hover:text-champagne-dark motion-reduce:transition-none motion-reduce:group-hover:translate-x-0">
+                {s.n}
+              </p>
+              <h3 className="font-display text-2xl mt-4 transition-all duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-x-1 group-hover:text-champagne-dark motion-reduce:transition-none motion-reduce:group-hover:translate-x-0">
+                {s.t}
+              </h3>
+              <p className="text-ash font-light leading-relaxed mt-3 text-sm transition-colors duration-[900ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:text-ink motion-reduce:transition-none">
+                {s.d}
+              </p>
             </div>
           ))}
         </div>
