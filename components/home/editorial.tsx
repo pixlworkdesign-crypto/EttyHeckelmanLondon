@@ -1,7 +1,10 @@
-import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PACKAGING_IMAGE } from "@/lib/site";
+
+// The values row is interactive (hover + scroll reveal), so it lives in its
+// own client component.
+export { ValueRow } from "./value-row";
 
 export function SignaturePackaging() {
   return (
@@ -92,52 +95,3 @@ export function BespokeBanner() {
   );
 }
 
-const VALUES = [
-  { title: "Fine Jewellery", body: "Rare stones, hand-set with exacting care." },
-  { title: "Considered Design", body: "Every detail drawn and refined by hand." },
-  { title: "Timeless Design", body: "Made to be worn today and treasured always." },
-  { title: "Made to Last", body: "Built to endure, backed by lifetime aftercare." },
-];
-
-export function ValueRow() {
-  return (
-    <section className="border-y border-line bg-gradient-to-b from-[#f7f2e8] to-[#efe7d7]">
-      <div className="mx-auto max-w-[1240px] px-5 md:px-10 py-14 md:py-16">
-        {/* Centred diamond motif */}
-        <div className="flex items-center justify-center gap-4 mb-11 md:mb-12" aria-hidden>
-          <span className="h-px w-10 bg-champagne/45" />
-          <span className="w-[6px] h-[6px] rotate-45 bg-champagne" />
-          <span className="h-px w-10 bg-champagne/45" />
-        </div>
-
-        <div className="flex flex-col lg:grid lg:grid-cols-4">
-          {VALUES.map(({ title, body }, i) => (
-            <Fragment key={title}>
-              {/* Mobile: a centred champagne diamond between stacked pillars */}
-              {i > 0 && (
-                <div className="lg:hidden flex justify-center py-7" aria-hidden>
-                  <span className="w-[5px] h-[5px] rotate-45 bg-champagne" />
-                </div>
-              )}
-              <div className="relative px-6 md:px-9 text-center">
-                {/* Desktop: diamond separator on the left edge of each pillar */}
-                {i > 0 && (
-                  <span
-                    aria-hidden
-                    className="hidden lg:block absolute left-0 top-3.5 -translate-x-1/2 w-[5px] h-[5px] rotate-45 bg-champagne"
-                  />
-                )}
-                <h3 className="font-display font-light text-2xl md:text-[1.6rem] leading-tight tracking-[0.01em] text-noir">
-                  {title}
-                </h3>
-                <p className="text-sm text-ash font-light mt-3 leading-relaxed max-w-[15rem] mx-auto">
-                  {body}
-                </p>
-              </div>
-            </Fragment>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
